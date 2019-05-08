@@ -1,19 +1,29 @@
 {
   "files": {
-    "main.css": "/glomar/static/css/main.6551bc30.chunk.css",
-    "main.js": "/glomar/static/js/main.676233f3.chunk.js",
-    "main.js.map": "/glomar/static/js/main.676233f3.chunk.js.map",
+    "main.css": "/glomar/static/css/main.08939f51.chunk.css",
+    "main.js": "/glomar/static/js/main.456200dc.chunk.js",
+    "main.js.map": "/glomar/static/js/main.456200dc.chunk.js.map",
     "runtime~main.js": "/glomar/static/js/runtime~main.ef3783cb.js",
     "runtime~main.js.map": "/glomar/static/js/runtime~main.ef3783cb.js.map",
     "static/css/2.eb2d33c6.chunk.css": "/glomar/static/css/2.eb2d33c6.chunk.css",
-    "static/js/2.93ed05a0.chunk.js": "/glomar/static/js/2.93ed05a0.chunk.js",
-    "static/js/2.93ed05a0.chunk.js.map": "/glomar/static/js/2.93ed05a0.chunk.js.map",
+    "static/js/2.9e112485.chunk.js": "/glomar/static/js/2.9e112485.chunk.js",
+    "static/js/2.9e112485.chunk.js.map": "/glomar/static/js/2.9e112485.chunk.js.map",
     "index.html": "/glomar/index.html",
-    "precache-manifest.e5ca4fdeacff21e60cac6229a0ef9d47.js": "/glomar/precache-manifest.e5ca4fdeacff21e60cac6229a0ef9d47.js",
+    "precache-manifest.736cf0a4854beaa4c44d5d399e1b5bd7.js": "/glomar/precache-manifest.736cf0a4854beaa4c44d5d399e1b5bd7.js",
     "service-worker.js": "/glomar/service-worker.js",
     "static/css/2.eb2d33c6.chunk.css.map": "/glomar/static/css/2.eb2d33c6.chunk.css.map",
-    "static/css/main.6551bc30.chunk.css.map": "/glomar/static/css/main.6551bc30.chunk.css.map",
+    "static/css/main.08939f51.chunk.css.map": "/glomar/static/css/main.08939f51.chunk.css.map",
+    "static/media/bat1.jpg": "/glomar/static/media/bat1.151acb6e.jpg",
     "static/media/bg-stadium.jpg": "/glomar/static/media/bg-stadium.c6545acd.jpg",
-    "static/media/homepage.css": "/glomar/static/media/glomar-bg-recolored.0527552b.jpg"
+    "static/media/homepage.css": "/glomar/static/media/glomar-bg-recolored.0527552b.jpg",
+    "static/media/softball.jpeg": "/glomar/static/media/softball.773ec61c.jpeg",
+    "static/media/team.jpeg": "/glomar/static/media/team.b58bb635.jpeg",
+    "static/media/tes1.jpg": "/glomar/static/media/tes1.f72c52f1.jpg",
+    "static/media/tes3.jpg": "/glomar/static/media/tes3.3e550201.jpg",
+    "static/media/tes4.jpg": "/glomar/static/media/tes4.5fa96221.jpg",
+    "static/media/tes5.jpg": "/glomar/static/media/tes5.76220526.jpg",
+    "static/media/tes6.jpg": "/glomar/static/media/tes6.2940b697.jpg",
+    "static/media/tes7.gif": "/glomar/static/media/tes7.efa8f2bd.gif",
+    "static/media/tes8.jpg": "/glomar/static/media/tes8.3194c075.jpg"
   }
 }
