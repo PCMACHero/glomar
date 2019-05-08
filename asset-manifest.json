@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/glomar/static/css/main.6551bc30.chunk.css",
+    "main.js": "/glomar/static/js/main.4cd56218.chunk.js",
+    "main.js.map": "/glomar/static/js/main.4cd56218.chunk.js.map",
+    "runtime~main.js": "/glomar/static/js/runtime~main.ef3783cb.js",
+    "runtime~main.js.map": "/glomar/static/js/runtime~main.ef3783cb.js.map",
+    "static/css/2.eb2d33c6.chunk.css": "/glomar/static/css/2.eb2d33c6.chunk.css",
+    "static/js/2.93ed05a0.chunk.js": "/glomar/static/js/2.93ed05a0.chunk.js",
+    "static/js/2.93ed05a0.chunk.js.map": "/glomar/static/js/2.93ed05a0.chunk.js.map",
+    "index.html": "/glomar/index.html",
+    "precache-manifest.014a50bca9d845a76eccfd7ccf082b0d.js": "/glomar/precache-manifest.014a50bca9d845a76eccfd7ccf082b0d.js",
+    "service-worker.js": "/glomar/service-worker.js",
+    "static/css/2.eb2d33c6.chunk.css.map": "/glomar/static/css/2.eb2d33c6.chunk.css.map",
+    "static/css/main.6551bc30.chunk.css.map": "/glomar/static/css/main.6551bc30.chunk.css.map",
+    "static/media/bg-stadium.jpg": "/glomar/static/media/bg-stadium.c6545acd.jpg",
+    "static/media/homepage.css": "/glomar/static/media/glomar-bg-recolored.0527552b.jpg"
+  }
+}
