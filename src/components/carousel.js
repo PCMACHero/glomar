@@ -8,32 +8,32 @@ export default class MyCarousel extends Component {
         return (
             <Carousel autoPlay={true} width={"100%"} infiniteLoop={true} showStatus={false} showThumbs={false} >
                 <div>
-                    <img src="/images/tes1.jpg" />
+                    <img src={require("./images/carousel/tes1.jpg")} />
                     <p className="legend">MANNY RAMIREZ</p>
                 </div>
                 
                 <div>
-                    <img src="/images/tes3.jpg" />
+                <img src={require("./images/carousel/tes3.jpg")} />
                     <p className="legend">Legend 3</p>
                 </div>
                 <div>
-                    <img src="/images/tes4.jpg" />
+                <img src={require("./images/carousel/tes4.jpg")} />
                     <p className="legend">Legend 3</p>
                 </div>
                 <div>
-                    <img src="/images/tes5.jpg" />
+                <img src={require("./images/carousel/tes5.jpg")} />
                     <p className="legend">Legend 3</p>
                 </div>
                 <div>
-                    <img src="/images/tes6.jpg" />
+                <img src={require("./images/carousel/tes6.jpg")} />
                     <p className="legend">Legend 3</p>
                 </div>
                 <div>
-                    <img src="/images/tes7.gif" />
+                <img src={require("./images/carousel/tes7.gif")} />
                     <p className="legend">Legend 3</p>
                 </div>
                 <div>
-                    <img src="/images/tes8.jpg" />
+                <img src={require("./images/carousel/tes8.jpg")} />
                     <p className="legend">Legend 3</p>
                 </div>
             </Carousel>

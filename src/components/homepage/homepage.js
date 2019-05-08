@@ -16,6 +16,7 @@ import Footer from '../footer/footer';
 import MyCarousel from '../carousel';
 
 
+
 export default class HomePage extends React.Component{
 panelClass="animated fadeInUp fast "
 panelClassOut="animated fadeOut slow"
@@ -32,7 +33,7 @@ componentDidMount(){
             <div className="color-over"></div>   
             <Parallax
             blur={2}
-            bgImage={require('./bg-stadium.jpg')}
+            bgImage={require('./img/bg-stadium.jpg')}
             bgImageAlt="the cat"
             strength={200}
         >
@@ -93,7 +94,7 @@ componentDidMount(){
                 return (
                   <div className="const-panel" ref={ref}>
                   <div className={inView?this.panelClass:this.panelClassOut}>
-                  <MediaCard  title="HIGHLY CUSTOMIZABLE" image="/images/bat1.jpg" p="Choose the wood, length, finish, and even add an engraving."/>
+                  <MediaCard  title="HIGHLY CUSTOMIZABLE" image={require('./img/bat1.jpg')} p="Choose the wood, length, finish, and even add an engraving."/>
                     
     
                   </div>
@@ -116,7 +117,7 @@ componentDidMount(){
               <div 
                className={inView?this.panelClass:this.panelClassOut} 
               >
-              <MediaCard title="A BAT FOR EVERY LEVEL" image="/images/softball.jpeg" p="Bats for youth, softball, and pros."/>
+              <MediaCard title="A BAT FOR EVERY LEVEL" image={require('./img/softball.jpeg')} p="Bats for youth, softball, and pros."/>
                 
 
               </div>
@@ -136,7 +137,7 @@ componentDidMount(){
               <div 
                className={inView?this.panelClass:this.panelClassOut} 
               >
-              <MediaCard title="BULK OPTIONS" image="/images/team.jpeg" p="Special pricing for bulk orders. Perfect for leagues, teams, and families."/>
+              <MediaCard title="BULK OPTIONS" image={require('./img/team.jpeg')} p="Special pricing for bulk orders. Perfect for leagues, teams, and families."/>
                 
 
               </div>
