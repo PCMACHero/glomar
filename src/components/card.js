@@ -11,40 +11,40 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
-    width: 345,
+    maxWidth: "100vw",
+    width: '100vw',
+    height: 500,
+    backgroundColor: "#00284c",
+    color:'white'
+    // margin: "10px",
+    
   },
   media: {
-    height: 140,
+    height: 400,
+    color:'white'
   },
 };
 
 function MediaCard(props) {
   const { classes } = props;
   return (
-    <Card className={classes.card}>
+    <Card  className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={props.image}
           title={props.imageTitle}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+        <CardContent >
+          <Typography style={{color:"white"}} gutterBottom variant="h5" component="h2">
           {props.title}
           </Typography>
-          <Typography component="p">
+          <Typography style={{color:"white"}} component="p">
             {props.p}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+      
     </Card>
   );
 }

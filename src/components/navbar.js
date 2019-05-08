@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -30,12 +31,21 @@ function Nav(props) {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            Home
-          </Typography>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            Store
-          </Typography>
+          <Link to="/">
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              Home
+            </Typography>
+          </Link>
+          <Link to="/shop">
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              Store
+            </Typography>
+          </Link>
+          <Link to="/">
+          
+          </Link>
+          
+          
           <Typography variant="h6" color="inherit" className={classes.grow}>
             History
           </Typography>

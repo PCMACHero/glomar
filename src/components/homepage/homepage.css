@@ -1,18 +1,32 @@
 .homepage-start{
-    background-image: url('/images/glomar-bg-recolored.jpg');
+    /* background-image: url('/images/glomar-bg-recolored.jpg');
     background-size: cover;
-    background-position: top;
+    background-position: top; */
     width: 100vw;
-    height: 600px;
+    /* height: 700px; */
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
 }
-
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+.hide{
+    display: none;
+}
+body{
+    overflow-x: hidden;
+    width: 100vw;
+}
 .App{
-    background-image: linear-gradient(rgb(4, 0, 37),black);
+    /* background-image: linear-gradient(rgb(8, 0, 36),rgb(0, 20, 109)); */
     /* display: flex;
     flex-direction: column; */
 }
@@ -21,16 +35,104 @@ h1{
     
     
 }
+h2{
+    font-family: 'Roboto', sans-serif;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+}
 h3{
-    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Roboto', sans-serif;
     color: lightblue;
     font-size: 2rem;
 }
 
 .card-container{
+    padding: 30px 0px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    height: 1500px;
+    width: 100%;
+    /* border:1px solid red; */
+   
+}
+
+.const-panel{
+    height: 500px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px solid green; */
+}
+#logo{
+    width: 70%;
+    height: 70%;
     
-    width: 90%;
+    
+    
+   
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.rowy{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.rowy div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+.MuiButton-containedSecondary-120 {
+    width: 300px;
+    
+    
+}
+
+.color-over{
+    position: absolute;
+    width: 100vw;
+    height: 700px;
+    background-color: rgba(0, 63, 100, 0.432);
+    z-index: 1;
+}
+
+.MuiSvgIcon-root-53{
+    margin-left: 10px;
+}
+
+.carousel .slide img {
+    width: 100%;
+    height: 400px;
+    vertical-align: center;
+    border: 0;
+    object-fit: contain;
+    object-position: center;
+}
+
+.hp-section{
+    width: 70vw;
+   
+    background-image: url('./glomar-bg-recolored.jpg');
+    /* padding: 50px; */
+    background-size: cover;
+    height: 400px;
+}
+.left-section{
+    border: 1px solid green;
+    width:30vw;
+    
 }

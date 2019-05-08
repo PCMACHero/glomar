@@ -1,6 +1,8 @@
+import 'intersection-observer'
 import React from 'react';
-import logo from './logo.svg';
-import {BrowserRouter, Route} from 'react-router-dom'
+import 'animate.css'
+
+import {HashRouter, Route} from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
@@ -12,23 +14,29 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Nav from './components/navbar'
 import './App.css';
 import blueGrey from '@material-ui/core/colors/blueGrey'
-import indigo from '@material-ui/core/colors/indigo';
-import pink from '@material-ui/core/colors/pink';
+import orange from '@material-ui/core/colors/orange';
+import teal from '@material-ui/core/colors/teal';
+import cyan from '@material-ui/core/colors/cyan';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
+import pink from '@material-ui/core/colors/pink';
 import HomePage from './components/homepage/homepage';
+import './mobile.css'
+import { indigo } from '@material-ui/core/colors';
+import Shop from './components/shop/shop';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MuiThemeProvider theme={theme}>
       
         <div className="App">
         <Nav/>
         <Route path="/" exact component={HomePage}/>
+        <Route path="/shop" exact component={Shop}/>
         </div>
       </MuiThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
@@ -37,8 +45,8 @@ export default App;
 
 const theme = createMuiTheme({
   palette: {
-    primary: { light: indigo[300], main: indigo[500], dark: indigo[900] },
-    secondary: { light: red[300], main: red[500], dark: red[900] },
+    primary: red,
+    secondary: indigo,
     error: red,
     // Used by `getContrastText()` to maximize the contrast between the background and
     // the text.
