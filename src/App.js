@@ -27,7 +27,7 @@ import Shop from './components/shop/shop';
 
 function App() {
   return (
-    <HashRouter>
+    <HashRouter basename='/'>
       <MuiThemeProvider theme={theme}>
       
         <div className="App">
