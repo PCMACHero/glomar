@@ -15,6 +15,7 @@ const styles = {
   },
   grow: {
     marginRight: "30px",
+    color: "white"
   },
   menuButton: {
     marginLeft: -12,
@@ -31,17 +32,17 @@ function Nav(props) {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Link to="/">
+          <Link style={{ textDecoration: 'none' }} to="/">
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Home
             </Typography>
           </Link>
-          <Link to="/shop">
+          <Link style={{ textDecoration: 'none' }} to="/shop">
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Store
             </Typography>
           </Link>
-          <Link to="/">
+          <Link style={{ textDecoration: 'none' }} to="/">
           
           </Link>
           
