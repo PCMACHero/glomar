@@ -1,8 +1,119 @@
 .page{
     position: relative;
     top:64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.shop{
+.quantity-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.DropDown-root-106{
+    justify-content: center;
+}
+.shop-modal{
+    width: 80vw;
+    height: 80vh;
+    background-color: rgb(24, 24, 24);
+    position: absolute;
+    border-radius: 10px;
+    /* left: 10vw; */
+    top: 0;
+    color: white;
+}
+.shop-modal > * {
+    border-bottom: solid 1px rgb(58, 58, 58);
+    /* margin: 10px 0; */
+    padding: 15px;
+   
+}
+
+/* engraving text */
+
+.MuiFormLabel-root-149{
+    color: white !important;
+}
+
+.MuiInputBase-input-179{
+    color: white !important;
+}
+
+.MuiOutlinedInput-root-156 .MuiOutlinedInput-notchedOutline-163 {
+    border-color: white !important;
+}
+
+.MuiTypography-colorTextSecondary-95{
+    color: white !important;
+}
+
+.MuiInput-underline-192:after{
+    border-bottom: solid 2px #1E7C1B !important;
+}
+
+.model-image{
+    /* max-width: 500px; */
+    max-width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
+}
+
+.color-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.color-choice{
+    width: 32px;
+    height: 32px;
+  
+
+}
+
+.unfinished{
+    background-color: beige;
+}
+.black{
+    background-color: rgb(0, 0, 0);
+}
+.charcoal{
+    background-color: rgb(90, 90, 90);
+}
+.mahogany{
+    background-color: #521311;
+}
+.forest-green{
+    background-color: #1E7C1B;
+}
+.navy-blue{
+    background-color: #00006D;
+}
+.royal-blue{
+    background-color: #334FDA;
+}
+.white-stain{
+    background-color: whitesmoke;
+}
+
+.shop-selection{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
 }

@@ -111,7 +111,7 @@ h3{
 }
 
 .MuiSvgIcon-root-53{
-    margin-left: 10px;
+    
 }
 
 .carousel .slide img {
@@ -135,4 +135,8 @@ h3{
     border: 1px solid green;
     width:30vw;
     
+}
+
+.DropDown-root-148{
+    justify-content: center;
 }

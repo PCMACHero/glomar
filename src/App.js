@@ -2,6 +2,7 @@ import 'intersection-observer'
 import React from 'react';
 import 'animate.css'
 
+
 import {HashRouter, Route} from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -21,9 +22,10 @@ import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import pink from '@material-ui/core/colors/pink';
 import HomePage from './components/homepage/homepage';
-import './mobile.css'
+
 import { indigo } from '@material-ui/core/colors';
 import Shop from './components/shop/shop';
+import './mobile.css'
 
 function App() {
   return (
