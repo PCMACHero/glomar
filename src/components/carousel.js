@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
@@ -14,7 +13,7 @@ export default class MyCarousel extends Component {
                 
                 <div>
                 <img src={require("./images/carousel/tes3.jpg")} />
-                    <p className="legend">Legend 3</p>
+                    <p className="legend">Manny Ramirez</p>
                 </div>
                 <div>
                 <img src={require("./images/carousel/tes4.jpg")} />
@@ -26,7 +25,7 @@ export default class MyCarousel extends Component {
                 </div>
                 <div>
                 <img src={require("./images/carousel/tes6.jpg")} />
-                    <p className="legend">Legend 3</p>
+                    <p className="legend">Tim Salmon</p>
                 </div>
                 <div>
                 <img src={require("./images/carousel/tes7.gif")} />
@@ -34,8 +33,13 @@ export default class MyCarousel extends Component {
                 </div>
                 <div>
                 <img src={require("./images/carousel/tes8.jpg")} />
-                    <p className="legend">Legend 3</p>
+                    <p className="legend">Chipper Jones</p>
                 </div>
+                <div>
+                <img src={require("./images/carousel/Tim-Salmon-Glomar-Bat.jpg")} />
+                    <p className="legend">Tim Salmon</p>
+                </div>
+                
             </Carousel>
         );
     }

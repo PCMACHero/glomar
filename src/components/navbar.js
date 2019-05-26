@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import CartIcon from '@material-ui/icons/ShoppingCart'
+
+import SwipeableTemporaryDrawer from './homepage/cartButton';
 
 const styles = {
   root: {
@@ -27,6 +30,7 @@ function Nav(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
+    
       <AppBar position="fixed">
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
@@ -39,18 +43,23 @@ function Nav(props) {
           </Link>
           <Link style={{ textDecoration: 'none' }} to="/shop">
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              Store
+              Shop
             </Typography>
           </Link>
           <Link style={{ textDecoration: 'none' }} to="/">
           
           </Link>
           
+          <SwipeableTemporaryDrawer emptyCart={()=>props.emptyCart()} removeItem={props.removeItem} magicClass={classes.margin} badgeContent={props.cartAmount} bats={props.bats} color="secondary" icon={<CartIcon />}/>
           
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            History
-          </Typography>
-          {/* <Button color="inherit">Login</Button> */}
+          {/* <Badge className={classes.margin} badgeContent={props.cartAmount} color="secondary">
+          <CartIcon onClick={()=>{
+            console.log("clicekd")
+            
+          }}/>
+        </Badge> */}
+          
+          
         </Toolbar>
       </AppBar>
     </div>

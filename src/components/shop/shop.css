@@ -1,9 +1,9 @@
 .page{
-    position: relative;
-    top:64px;
+    /* position: relative; */
+    /* top:64px; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -24,23 +24,28 @@
 .shop-modal{
     width: 80vw;
     height: 80vh;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(93, 126, 134);
     position: absolute;
     border-radius: 10px;
+    border: solid 1px rgb(99, 98, 98);
     /* left: 10vw; */
-    top: 0;
+    /* top: 64px; */
     color: white;
 }
 .shop-modal > * {
-    border-bottom: solid 1px rgb(58, 58, 58);
+    /* border-bottom: solid 1px rgb(58, 58, 58); */
     /* margin: 10px 0; */
-    padding: 15px;
+    padding: 10px 0;
    
+}
+.block{
+    display: block;
+    width: 100%;
 }
 
 /* engraving text */
 
-.MuiFormLabel-root-149{
+/* .MuiFormLabel-root-149{
     color: white !important;
 }
 
@@ -58,7 +63,7 @@
 
 .MuiInput-underline-192:after{
     border-bottom: solid 2px #1E7C1B !important;
-}
+} */
 
 .model-image{
     /* max-width: 500px; */
@@ -80,8 +85,8 @@
 }
 
 .color-choice{
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
   
 
 }
@@ -99,7 +104,7 @@
     background-color: #521311;
 }
 .forest-green{
-    background-color: #1E7C1B;
+    background-color: rgb(16, 66, 14);
 }
 .navy-blue{
     background-color: #00006D;

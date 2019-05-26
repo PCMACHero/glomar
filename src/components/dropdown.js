@@ -56,16 +56,16 @@ class DropDown extends React.Component {
           >
             {this.props.text}
           </Button>
-          <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+          <Popper open={open} anchorEl={this.anchorEl} transition>
             {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
                 id="menu-list-grow"
                 style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
               >
-                <Paper>
+                <Paper style={{zIndex:2}}>
                   <ClickAwayListener onClickAway={this.handleClose}>
-                    <MenuList>
+                    <MenuList >
                       <MenuItem onClick={(e)=>this.handleClose(e,31)}>31"</MenuItem>
                       <MenuItem onClick={(e)=>this.handleClose(e,32)}>32"</MenuItem>
                       <MenuItem onClick={(e)=>this.handleClose(e,32.5)}>32.5"</MenuItem>

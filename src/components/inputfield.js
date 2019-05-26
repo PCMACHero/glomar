@@ -15,9 +15,7 @@ import FloatingActionButton from './floatingbtn';
 class InputField extends React.Component{
 
 state={
-    engraving:"",
-    quantity:1,
-    engravingLabel:"Engraving (Optional)"
+    
 
 
 }
@@ -41,26 +39,13 @@ render(){
           <div className="input-fields">
 
           
-           <TextField
-              onFocus={()=>{this.setState({engravingLabel:""})}}
-              style={{borderColor:"blue"}}
-              label={this.state.engravingLabel}
-              variant="outlined"
-              id="mui-theme-provider-outlined-input"
-              onChange={(e)=>{this.handleChange(e)}}
-              value={this.state.engraving}
-              inputProps={{ maxLength: 20}}
-              color="secondary"
-              InputLabelProps={{
-                shrink: false,
-              }}
-            />
+           
             <div className="quantity-row">
               
               <TextField
             id="standard-number"
-            value={this.state.quantity}
-            onChange={(e)=>{this.handleChangeQuant(e)}}
+            value={this.props.quantity}
+            
             type="number"
             InputProps={{
               startAdornment: <InputAdornment position="start">Quantity</InputAdornment>,
@@ -77,13 +62,13 @@ render(){
           <FloatingActionButton color="primary" icon={<RemoveIcon/>} label="Remove"
               onClick={()=>{
                 console.log("clicked")
-                if(this.state.quantity<1){
+                if(this.props.quantity<1){
                   return
                 }
-                this.setState({quantity: this.state.quantity - 1})}} />
+                this.props.update((this.props.quantity - 1))}} />
           <FloatingActionButton onClick={()=>{
             console.log("clicked")
-            this.setState({quantity: this.state.quantity + 1})}} 
+            this.props.update((this.props.quantity + 1))}} 
             color="secondary" icon={<AddIcon/>} label="Add"/>
             </div>
             

@@ -21,10 +21,7 @@
 .hide{
     display: none;
 }
-body{
-    overflow-x: hidden;
-    width: 100vw;
-}
+
 .App{
     /* background-image: linear-gradient(rgb(8, 0, 36),rgb(0, 20, 109)); */
     /* display: flex;
@@ -78,9 +75,9 @@ h3{
 .row{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: 100vw;
+    /* width: 100vw; */
 }
 .rowy{
     display: flex;

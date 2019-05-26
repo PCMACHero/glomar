@@ -25,21 +25,124 @@ import HomePage from './components/homepage/homepage';
 
 import { indigo } from '@material-ui/core/colors';
 import Shop from './components/shop/shop';
-import './mobile.css'
 
-function App() {
-  return (
-    <HashRouter basename='/'>
-      <MuiThemeProvider theme={theme}>
-      
-        <div className="App">
-        <Nav/>
-        <Route path="/" exact component={HomePage}/>
-        <Route path="/shop" exact component={Shop}/>
-        </div>
-      </MuiThemeProvider>
-    </HashRouter>
-  );
+import './mobile.css'
+import Footer from './components/footer/footer';
+import CustomizedSnackbars from './components/snackbar';
+
+class App extends React.Component{
+  state={
+    cart:{
+      quantity:0,
+      bats:[]
+    },
+    drawer:true,
+    snackMessage:"thisworks",
+    //success error info warning
+    snackVariant:"success",
+    snackTime:3000,
+    snackOpen:false
+  }
+
+  closeSnack=()=>{
+    this.setState({
+      snackOpen:false
+    })
+  }
+  openSnack=(variant, message, time=2000)=>{
+    this.setState({
+      snackVariant:variant,
+      snackMessage: message,
+      snackOpen:true,
+      snackTime:time
+    })
+  }
+
+  updateCart=(quantity,bat)=>{
+    if(!quantity){
+      return
+    }
+    
+    console.log("Bat Added to cart", bat)
+    let tempBats = this.state.cart.bats
+    
+    
+    // for(let i = 0; i<quantity; i++){
+      tempBats.push(bat)
+    // }
+    let totalQuantity= null
+    tempBats.forEach((e,i)=>{
+      totalQuantity += e.quantity 
+    })
+    
+    this.setState({
+      cart:{
+        quantity: totalQuantity,
+        bats: tempBats
+      }
+    },()=>{
+      localStorage.setItem("cart", JSON.stringify(this.state.cart))
+    })
+  }
+
+  removeItem=(index)=>{
+    let tempBats = this.state.cart.bats
+    let totalQuantity= null
+    tempBats.splice(index,1)
+
+    tempBats.forEach((e,i)=>{
+      totalQuantity += e.quantity 
+    })
+
+    this.setState({
+      cart:{
+        quantity:totalQuantity,
+        bats:tempBats
+      }
+    },()=>{
+      localStorage.setItem("cart", JSON.stringify(this.state.cart))
+    })
+  }
+  emptyCart=()=>{
+    this.setState({
+      cart:{
+        quantity:0,
+        bats:[]
+      }
+    },()=>{
+      localStorage.removeItem("cart")
+    })
+  }
+  openDrawer=()=>{
+    this.setState({drawer:true})
+  }
+  componentDidMount(){
+    if(localStorage.getItem("cart")){
+      let cart = localStorage.getItem("cart")
+      this.setState({
+        cart:JSON.parse(cart) 
+      })
+    }
+  }
+  render(){
+    return (
+      <HashRouter basename='/'>
+        <MuiThemeProvider theme={theme}>
+        
+          <div className="App">
+          <Nav cartAmount={this.state.cart.quantity} removeItem={this.removeItem} emptyCart={()=>this.emptyCart()} bats={this.state.cart.bats?this.state.cart.bats:""} openDrawer={()=>this.openDrawer()} drawer={true}/>
+          <div className="nav-buffer" style={{height:"56px",width:"100%"}}></div>
+          <CustomizedSnackbars message={this.state.snackMessage} variant={this.state.snackVariant} time={this.state.snackTime} close={this.closeSnack} open={this.openSnack} isOpen={this.state.snackOpen}/>
+          <Route path="/" exact component={HomePage}/>
+          <Route path="/shop" render={(props) => <Shop updateCart={this.updateCart} openSnack={this.openSnack} {...props}  />}/>
+          <div className="nav-buffer" style={{height:"64px",width:"100%"}}></div>
+          <Footer/>
+          </div>
+        </MuiThemeProvider>
+      </HashRouter>
+    );
+  }
+  
 }
 
 export default App;
@@ -47,9 +150,10 @@ export default App;
 
 const theme = createMuiTheme({
   palette: {
-    primary: red,
-    secondary: indigo,
+    primary: teal,
+    secondary: cyan,
     error: red,
+    dark: blueGrey,
     // Used by `getContrastText()` to maximize the contrast between the background and
     // the text.
     contrastThreshold: 3,

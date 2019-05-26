@@ -35,7 +35,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        /* padding: 0; */
+        padding: 0;
+        background-position: center;
         
     }
     .shop-modal{
@@ -43,16 +44,46 @@
         height: initial;
         width: 95%;
     }
+    .shop-model{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        color:white;
+        border-bottom: 5px rgb(255, 255, 255) solid;
+    }
 
     .shop-item{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         background-color: rgb(24, 24, 24);
         width: 45vw;
-        height: 45vw;
+        height: 32vw;
         margin: 5px 0;
         border-radius: 5px;
         color: white;
+    }
+    .shop-item-image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        
+        background-repeat: no-repeat;
+    }
+    .shop-item-text{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45vw;
+        height: 32vw;
+        background-image: radial-gradient(rgba(0, 0, 0, 0.233),rgba(0, 0, 0, 0.459));
+        border-radius: 5px;
+        
+        background-repeat: no-repeat;
     }
   }

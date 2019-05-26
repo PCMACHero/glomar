@@ -4,18 +4,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/icons": "^4.0.0",
     "animate.css": "^3.7.0",
     "gh-pages": "^2.0.1",
-    "intersection-observer": "^0.6.0",
+    "intersection-observer": "^0.7.0",
     "react": "^16.8.6",
+    "react-device-detect": "^1.6.2",
     "react-dom": "^16.8.6",
     "react-intersection-observer": "^8.23.0",
     "react-parallax": "^2.2.0",
     "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0",
+    "react-scripts": "3.0.1",
     "react-scroll-percentage": "^3.1.0"
   },
   "scripts": {
@@ -42,4 +43,3 @@
     ]
   }
 }
-
