@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7f5f9a52bac8182e8fede839743eba2b",
+    "revision": "a72c3fbfefaf60e84fde6c6467a00e32",
     "url": "/glomar/index.html"
   },
   {
-    "revision": "a5803ef0381a76fd4766",
+    "revision": "22ffeada03a288682757",
     "url": "/glomar/static/css/2.eb2d33c6.chunk.css"
   },
   {
-    "revision": "7fc31b970fa73beefac4",
-    "url": "/glomar/static/css/main.10b58de7.chunk.css"
+    "revision": "13b3ac9cf3fda1073a27",
+    "url": "/glomar/static/css/main.8da88c86.chunk.css"
   },
   {
-    "revision": "a5803ef0381a76fd4766",
-    "url": "/glomar/static/js/2.3221476b.chunk.js"
+    "revision": "22ffeada03a288682757",
+    "url": "/glomar/static/js/2.e5ac683d.chunk.js"
   },
   {
-    "revision": "7fc31b970fa73beefac4",
-    "url": "/glomar/static/js/main.042d1f6f.chunk.js"
+    "revision": "13b3ac9cf3fda1073a27",
+    "url": "/glomar/static/js/main.f7f6a1a7.chunk.js"
   },
   {
     "revision": "3779eced2dee8d17a425",
@@ -52,16 +52,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/glomar/static/media/GSOFTBALL-1.151acb6e.jpg"
   },
   {
+    "revision": "f3a74de4c98d3e13d86c65feb70a27ae",
+    "url": "/glomar/static/media/Tim-Salmon-Glomar-Bat.f3a74de4.jpg"
+  },
+  {
     "revision": "35085fa1ed9ab29f39dff0c45d76259d",
     "url": "/glomar/static/media/YOUTH-1.35085fa1.jpg"
   },
   {
     "revision": "151acb6e3c72f63856cdebad81e3090e",
     "url": "/glomar/static/media/bat1.151acb6e.jpg"
-  },
-  {
-    "revision": "c6545acd5da3717e1344fca9b8e13e24",
-    "url": "/glomar/static/media/bg-stadium.c6545acd.jpg"
   },
   {
     "revision": "0527552bcff3dbb742c96532846ccd61",
