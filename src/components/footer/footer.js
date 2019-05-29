@@ -48,11 +48,13 @@ function Footer() {
             Glomar Pro Bats 2019©
           </Typography>
           <IconButton>
-              <Email color="primary"/>
+            <a href="mailto:glomar@glomar.bats"><Email color="primary"/></a>
+              
               
           </IconButton>
           <IconButton>
-              <Call color="primary"/>
+            <a href="tel:1-408-555-5555"><Call color="primary"/></a>
+              
               
           </IconButton>
         </Toolbar>
