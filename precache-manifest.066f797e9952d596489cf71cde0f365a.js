@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f220bfaea9269a4d637bd90f86227c82",
+    "revision": "6c2d66dc7c97f8312129bdf4a2b533c7",
     "url": "/glomar/index.html"
   },
   {
-    "revision": "a4872c3d9ff5ca739d3b",
+    "revision": "46e7456113ec5382c8a8",
     "url": "/glomar/static/css/2.eb2d33c6.chunk.css"
   },
   {
-    "revision": "7555f9c202cf7b3450c8",
-    "url": "/glomar/static/css/main.8da88c86.chunk.css"
+    "revision": "8195ed2a795544d29a78",
+    "url": "/glomar/static/css/main.edd189ce.chunk.css"
   },
   {
-    "revision": "a4872c3d9ff5ca739d3b",
-    "url": "/glomar/static/js/2.26551671.chunk.js"
+    "revision": "46e7456113ec5382c8a8",
+    "url": "/glomar/static/js/2.e12379bc.chunk.js"
   },
   {
-    "revision": "7555f9c202cf7b3450c8",
-    "url": "/glomar/static/js/main.7dadb243.chunk.js"
+    "revision": "8195ed2a795544d29a78",
+    "url": "/glomar/static/js/main.ff7c301e.chunk.js"
   },
   {
     "revision": "3779eced2dee8d17a425",
@@ -62,6 +62,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "151acb6e3c72f63856cdebad81e3090e",
     "url": "/glomar/static/media/bat1.151acb6e.jpg"
+  },
+  {
+    "revision": "c6545acd5da3717e1344fca9b8e13e24",
+    "url": "/glomar/static/media/bg-stadium.c6545acd.jpg"
   },
   {
     "revision": "0527552bcff3dbb742c96532846ccd61",
