@@ -1,3 +1,6 @@
+.homepage{
+    background-image: linear-gradient(to right,black,rgb(66, 66, 66));
+}
 .homepage-start{
     /* background-image: url('/images/glomar-bg-recolored.jpg');
     background-size: cover;
@@ -123,7 +126,7 @@ h3{
 .hp-section{
     width: 70vw;
    
-    background-image: url('./img/glomar-bg-recolored.jpg');
+    background-image: url('./img/bg-stadium.jpg');
     /* padding: 50px; */
     background-size: cover;
     height: 400px;

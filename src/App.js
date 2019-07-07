@@ -29,6 +29,7 @@ import Shop from './components/shop/shop';
 import './mobile.css'
 import Footer from './components/footer/footer';
 import CustomizedSnackbars from './components/snackbar';
+import Checkout from './components/checkout/checkout';
 
 class App extends React.Component{
   state={
@@ -50,6 +51,7 @@ class App extends React.Component{
     })
   }
   openSnack=(variant, message, time=2000)=>{
+    
     this.setState({
       snackVariant:variant,
       snackMessage: message,
@@ -116,11 +118,13 @@ class App extends React.Component{
   openDrawer=()=>{
     this.setState({drawer:true})
   }
-  componentDidMount(){
+  componentDidMount(){console.log(this.state.cart.bats)
     if(localStorage.getItem("cart")){
       let cart = localStorage.getItem("cart")
       this.setState({
         cart:JSON.parse(cart) 
+      },()=>{
+        console.log("Cart quantity", this.state.cart.quantity)
       })
     }
   }
@@ -135,6 +139,8 @@ class App extends React.Component{
           <CustomizedSnackbars message={this.state.snackMessage} variant={this.state.snackVariant} time={this.state.snackTime} close={this.closeSnack} open={this.openSnack} isOpen={this.state.snackOpen}/>
           <Route path="/" exact component={HomePage}/>
           <Route path="/shop" render={(props) => <Shop updateCart={this.updateCart} openSnack={this.openSnack} {...props}  />}/>
+          <Route path="/checkout" render={(props) => <Checkout bats={this.state.cart.bats?this.state.cart.bats:""} updateCart={this.updateCart} openSnack={this.openSnack} quantity={this.state.cart.quantity} {...props}  />}/>
+
           <div className="nav-buffer" style={{height:"64px",width:"100%"}}></div>
           <Footer/>
           </div>
@@ -151,7 +157,7 @@ export default App;
 const theme = createMuiTheme({
   palette: {
     primary: teal,
-    secondary: cyan,
+    secondary: orange,
     error: red,
     dark: blueGrey,
     // Used by `getContrastText()` to maximize the contrast between the background and

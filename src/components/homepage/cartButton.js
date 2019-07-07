@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import Red from '@material-ui/core/colors/red'
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -62,13 +63,16 @@ function SwipeableTemporaryDrawer(props) {
       </List>
       <Divider />
       <List>
-        
+          <Link to="/checkout" style={{ textDecoration: 'none' }} >
           <ListItem button>
-            <ListItemIcon><InboxIcon /></ListItemIcon>
-            <ListItemText primary={"Checkout"} 
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}/>
-          </ListItem>
+              <ListItemIcon><InboxIcon /></ListItemIcon>
+              
+              <ListItemText primary={"Checkout"} 
+              onClick={toggleDrawer(side, false)}
+              onKeyDown={toggleDrawer(side, false)}/>
+            </ListItem>
+          </Link>
+          
         
       </List>
     </div>

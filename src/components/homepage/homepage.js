@@ -16,9 +16,9 @@ import MyCarousel from '../carousel';
 
 
 export default class HomePage extends React.Component{
-panelClass="animated fadeInUp fast "
+panelClass="animated fadeInRight "
 panelClassOut="animated fadeOut slow"
-threshold=0.5
+threshold=.8
 componentDidMount(){
   window.scrollTo(0, 0)
   
@@ -27,7 +27,7 @@ componentDidMount(){
     render(){
       
         return (
-            <React.Fragment>
+            <div className="homepage">
             <div className="color-over"></div>   
             <Parallax
             // blur={2}
@@ -59,31 +59,38 @@ componentDidMount(){
 </div>
             
         </Parallax> 
-        <div className="row">
-          <div className="left-section hide-on-mobile">
+        <div className="center">
           
-            <MyCarousel/>
-          
-          </div>
           <div className="col hp-section">
               <InView >
                 {({ inView, ref }) => {
-                  console.log(ref)
+                  console.log("my ref 1", ref)
                   return(
 
-                  <div ref={ref}>
-                    <h2 className={inView?"animated fadeIn slow delay-2s":""}>WELCOME TO GLOMAR PRO BATS</h2>
+                  <div ref={ref} style={{height:"100%"}}>
+                    <h1 className={inView?"animated fadeIn slow delay-1s":""} style={{color:"white", fontSize:"3em"}}>WELCOME TO GLOMAR PRO BATS</h1>
                   </div>
                 )}}
               </InView>
               
-              <Typography variant="h5" color="primary" style={{width:"80%"}}>
-              They have been used by professionals and trusted by professionals for years.  
-              Each bat is examined for quality assurance and top notch craftsmanship, they are made of the finest wood to ensure that they are strong enough for the pros, and the backyard.  
-              Glomar bats, a sure hit!
-              </Typography>   
+               
                 
               </div>
+              <InView threshold={this.threshold}>
+                {({ inView, ref }) => {
+                  console.log("my ref 2", ref)
+                  return(
+
+                  <div ref={ref} style={{height:"450px", display:"flex",justifyContent:"center", alignItems:"center"}}>
+                    <Typography className={inView?"animated fadeIn slow delay-1s":this.panelClassOut} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
+                      They have been used by professionals and trusted by professionals for years.  
+                      Each bat is examined for quality assurance and top notch craftsmanship, they are made of the finest wood to ensure that they are strong enough for the pros, and the backyard.  
+                      Glomar bats, a sure hit!
+                    </Typography>                   
+                  </div>
+                )}}
+              </InView>
+               
         </div>
             
             
@@ -95,7 +102,7 @@ componentDidMount(){
                 return (
                   <div className="const-panel" ref={ref}>
                   <div className={inView?this.panelClass:this.panelClassOut}>
-                  <MediaCard  title="HIGHLY CUSTOMIZABLE" image={require('./img/bat1.jpg')} p="Choose the wood, length, finish, and even add an engraving."/>
+                  <MediaCard  title="CUSTOMIZABLE" image={require('./img/bat1.jpg')} p="Choose the wood, length, finish, and engraving."/>
                     
     
                   </div>
@@ -138,7 +145,7 @@ componentDidMount(){
               <div 
                className={inView?this.panelClass:this.panelClassOut} 
               >
-              <MediaCard title="BULK OPTIONS" image={require('./img/team.jpeg')} p="Special pricing for bulk orders. Perfect for leagues, teams, and families."/>
+              <MediaCard title="BULK PRICING" image={require('./img/team.jpeg')} p="Perfect for leagues, teams, and families."/>
                 
 
               </div>
@@ -151,21 +158,36 @@ componentDidMount(){
             
                 
             
+
+            <InView threshold={this.threshold}>
+                {({ inView, ref }) => {
+                  console.log("my ref 2", ref)
+                  return(
+
+                  <div ref={ref} style={{height:"450px", display:"flex",justifyContent:"center", alignItems:"center"}}>
+                    <Typography className={inView?"animated fadeIn slow delay-1s":this.panelClassOut} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
+                      PLAYERS THAT HAVE USED GLOMAR
+                    </Typography>                   
+                  </div>
+                )}}
+              </InView>
             
-            <Button variant="contained" color="secondary" className={styles.button} style={{margin:"25px"}}>
+            
+          
+          <div className="rowy" style={{marginBottom:"100px"}}>
+            <MyCarousel/>
+          </div>
+
+          <Link to={"/shop"} style={{ textDecoration: 'none'}}>
+<Button variant="contained" color="secondary"  className={styles.button}>
                 Shop Now
                 <ShopIcon className={styles.rightIcon} />
           </Button>
-          <Typography variant="h5" color="primary" style={{width:"100%"}}>
-            
-            PLAYERS WHO HAVE USED GLOMAR
-          </Typography >
-          <div className="rowy">
-            <MyCarousel/>
-          </div>
+</Link>
+                <div className="margin"></div>
           
          
-          </React.Fragment>
+          </div>
         )
     }
 }

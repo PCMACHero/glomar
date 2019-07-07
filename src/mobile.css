@@ -29,6 +29,8 @@
     .model-image{
         max-width: 100%;
         /* width: 80vw; */
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
         height: 200px;
         border: none;
         background-size: cover;
@@ -63,6 +65,7 @@
         margin: 5px 0;
         border-radius: 5px;
         color: white;
+        /* border-left: 1px solid rgb(219, 219, 219); */
     }
     .shop-item-image{
         display: flex;
@@ -80,8 +83,9 @@
         justify-content: center;
         align-items: center;
         width: 45vw;
-        height: 32vw;
-        background-image: radial-gradient(rgba(0, 0, 0, 0.233),rgba(0, 0, 0, 0.459));
+        padding: 5px 0;
+        /* height: 32vw; */
+        background-image: radial-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.459));
         border-radius: 5px;
         
         background-repeat: no-repeat;

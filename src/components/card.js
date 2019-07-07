@@ -14,7 +14,7 @@ const styles = {
     maxWidth: "100vw",
     width: '100vw',
     height: 500,
-    backgroundColor: "#00284c",
+    backgroundColor: "#F77D08",
     color:'white'
     // margin: "10px",
     
@@ -31,6 +31,7 @@ function MediaCard(props) {
     <Card  className={classes.card}>
       <CardActionArea>
         <CardMedia
+          color="primary"
           className={classes.media}
           image={props.image}
           title={props.imageTitle}

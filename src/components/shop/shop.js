@@ -225,8 +225,16 @@ export default class Shop extends React.Component{
                     
                     <ShopSelection openSnack={this.props.openSnack} onClick={this.openItem} firstOpen={this.state.firstOpen} show={!this.state.showShop} models={this.models}/>
                     <div style={{display:`${this.state.firstOpen?"none":""}`}} className={this.state.showShop?`shop-modal animated slideInDown fast`: "shop-modal animated slideOutUp fast"}>
+                        
                         <div className="model-image" style={{backgroundImage:`url(${this.models[this.state.itemClicked].image})`}}></div>
-                        <div className="shop-model">{this.state.itemClicked}</div>
+                        <div className="shop-model">
+                            <div className="shop-model-model">
+                                {this.state.itemClicked}
+                            </div>
+                            <div className={`shop-model-color ${this.state.selectedColor==="Select a Color"?"":"animated rotateIn "}`}>{this.state.selectedColor==="Select a Color"?"":this.state.selectedColor}</div>
+                            <div className={`shop-model-size ${this.state.selectedSize?"animated rotateIn ":""}`}>{this.state.selectedSize?`${this.state.selectedSize}"`:""}</div>
+                        
+                        </div>
                         <div className="color-bar-box">
                             <div className="color-bar">
                             <Tooltip title="Unfinished" placement="bottom">
