@@ -1,4 +1,5 @@
 import React from 'react'
+import SmartPaymentButtons from 'react-smart-payment-buttons';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
@@ -137,7 +138,13 @@ export default class Checkout extends React.Component{
                             />
                 <div className="total-price margin">Total ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div>
                 <div className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: "code not applied"}</div>
-                <div id="paypal-button-container"></div>
+                {/* <div id="paypal-button-container"></div> */}
+                <div style={{width:"300px"}}>
+      
+      <SmartPaymentButtons
+        
+      />
+    </div>
             </div>
         )
     }
