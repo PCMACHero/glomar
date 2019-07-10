@@ -30,6 +30,7 @@ import './mobile.css'
 import Footer from './components/footer/footer';
 import CustomizedSnackbars from './components/snackbar';
 import Checkout from './components/checkout/checkout';
+import About from './components/about/about';
 
 class App extends React.Component{
   state={
@@ -140,6 +141,7 @@ class App extends React.Component{
           <Route path="/" exact component={HomePage}/>
           <Route path="/shop" render={(props) => <Shop updateCart={this.updateCart} openSnack={this.openSnack} {...props}  />}/>
           <Route path="/checkout" render={(props) => <Checkout bats={this.state.cart.bats?this.state.cart.bats:""} updateCart={this.updateCart} openSnack={this.openSnack} quantity={this.state.cart.quantity} {...props}  />}/>
+          <Route path="/about" exact component={About}/>
 
           <div className="nav-buffer" style={{height:"64px",width:"100%"}}></div>
           <Footer/>

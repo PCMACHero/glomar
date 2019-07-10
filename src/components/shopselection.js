@@ -28,43 +28,43 @@ export default class ShopSelection extends React.Component{
                 
                 onClick={()=>{this.props.onClick("G243 Pro Model")}}>
                 <div className="shop-item-image"
-                style={{backgroundImage:`url(${this.props.models["G243 Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G243 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 ></div>
                 <div className="shop-item-text">G243 Pro Model</div>
                 
                 </div>
                 <div className="shop-item"
-                style={{backgroundImage:`url(${this.props.models["GSoftball Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["GSoftball Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("GSoftball Pro Model")}}>
                 <div className="shop-item-text">GSoftball Pro Model</div>
                 </div>
                 <div className="shop-item"
-                style={{backgroundImage:`url(${this.props.models["G271 Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G271 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G271 Pro Model")}}>
                 <div className="shop-item-text">G271 Pro Model</div>
                 </div>
                 <div className="shop-item"
-                style={{backgroundImage:`url(${this.props.models["G271 Pro YOUTH BAT"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G271 Pro YOUTH BAT"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G271 Pro YOUTH BAT")}}>
                 <div className="shop-item-text">G271 Pro YOUTH BAT</div>
                 </div>
                 <div className="shop-item" 
-                style={{backgroundImage:`url(${this.props.models["G110 Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G110 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G110 Pro Model")}}>
                 <div className="shop-item-text">G110 Pro Model</div>
                 </div>
                 <div className="shop-item" 
-                style={{backgroundImage:`url(${this.props.models["G13 Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G13 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G13 Pro Model")}}>
                 <div className="shop-item-text">G13 Pro Model</div>
                 </div>
                 <div className="shop-item" 
-                style={{backgroundImage:`url(${this.props.models["G141 Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G141 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G141 Pro Model")}}>
                 <div className="shop-item-text">G141 Pro Model</div>
                 </div>
                 <div className="shop-item" 
-                style={{backgroundImage:`url(${this.props.models["G161 Pro Model"].image})`, backgroundSize:"cover"}}
+                style={{backgroundImage:`url(${this.props.models["G161 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G161 Pro Model")}}>
                 <div className="shop-item-text">G161 Pro Model</div>
                 </div>

@@ -3,16 +3,48 @@ import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import ShopIcon from '@material-ui/icons/Shop';
 import { isMobile } from "react-device-detect";
+import { makeStyles } from '@material-ui/core/styles';
+import RadioGroup from '@material-ui/core/RadioGroup';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Radio from '@material-ui/core/Radio';
 
 
 import G243 from '../images/models/G243-1.jpg'
+import G243_2 from '../images/models/G243-2.jpg'
+import G243_3 from '../images/models/G243-3.jpg'
+
+
 import GSoftball from '../images/models/GSOFTBALL-1.jpg'
+import GSoftball_2 from '../images/models/GSOFTBALL-2.jpg'
+import GSoftball_3 from '../images/models/GSOFTBALL-3.jpg'
+
 import G271 from '../images/models/G271-1.jpg'
+import G271_2 from '../images/models/G271-2.jpg'
+import G271_3 from '../images/models/G271-3.jpg'
+
+
 import G271Y from '../images/models/YOUTH-1.jpg'
+import G271Y_2 from '../images/models/YOUTH-2.jpg'
+import G271Y_3 from '../images/models/YOUTH-3.jpg'
+
 import G110 from '../images/models/G110-1.jpg'
+import G110_2 from '../images/models/G110-2.jpg'
+import G110_3 from '../images/models/G110-3.jpg'
+
 import G13 from '../images/models/G13-1.jpg'
+import G13_2 from '../images/models/G13-2.jpg'
+import G13_3 from '../images/models/G13-3.jpg'
+
 import G141 from '../images/models/G141-1.jpg'
+import G141_2 from '../images/models/G141-2.jpg'
+import G141_3 from '../images/models/G141-3.jpg'
+
 import G161 from '../images/models/G161-1.jpg'
+import G161_2 from '../images/models/G161-2.jpg'
+import G161_3 from '../images/models/G161-3.jpg'
+
 import DropDown from '../dropdown'
 import Tooltip from '@material-ui/core/Tooltip';
 import './shop.css'
@@ -25,6 +57,8 @@ import CustomizedSnackbars from '../snackbar';
 
 
 
+
+
 export default class Shop extends React.Component{
     state={
         isMobile:null,
@@ -34,6 +68,7 @@ export default class Shop extends React.Component{
         
         selectedColor: "Select a Color",
         selectedSize:null,
+        selectedWood:"Maple",
         engraving:"",
         quantity: 1,
 
@@ -41,8 +76,18 @@ export default class Shop extends React.Component{
         colorHover: null,
         engravingLabel:"Engraving (Optional)",
 
+        counter:0,
+        
+
+        
+
       
     }
+
+ 
+
+    intervalID=0
+
     adultSizes=[31,32,32.5,33,33.5,34]
     youthSizes=[26,27,28,29,30]
 
@@ -73,56 +118,56 @@ export default class Shop extends React.Component{
     models={
 
         "G243 Pro Model":{
-            image: G243,
+            image: [G243, G243_2, G243_3],
             price: 95.00,
             description: "Our G243 model is the true power hitter's bat, fitted with a big barrel and regular size handle.",
             sizes: this.adultSizes,
             colors: this.normalColors
         },
         "GSoftball Pro Model":{
-            image: GSoftball,
+            image: [GSoftball, GSoftball_2, GSoftball_3],
             price: 95.00,
             description: "Our G-SOFT1 model is made specifically to suit softball players. It has a great and sturdy feel.",
             sizes: this.adultSizes,
             colors: this.normalColors
         },
         "G271 Pro Model":{
-            image: G271,
+            image: [G271,G271_2,G271_3],
             price: 95.00,
             description: "A very popular bat features a medium size barrel and a thin handle with a regular flared knob. Provides some pop, while still allowing your hands to get through the zone in a hurry.",
             sizes: this.adultSizes,
             colors: this.normalColors
         },
         "G271 Pro YOUTH BAT":{
-            image: G271Y,
+            image: [G271Y,G271Y_2,G271Y_3],
             price: 95.00,
             description: "The Glomar Youth bat is a replica of the adult model G271. The Youth bat has a regular size barrel for younger players with a flared knob. Easy to get around that fast ball.",
             sizes: this.youthSizes,
             colors: this.youthColors
         },
         "G110 Pro Model":{
-            image: G110,
+            image: [G110,G110_2,G110_3],
             price: 95.00,
             description: "Modeled after one of the most popular bats in professional baseball, the M110, the G110 is a hallmark of bat technology. It's so good, in fact, that it was used by Manny Ramirez while playing in Los Angeles.",
             sizes: this.adultSizes,
             colors: this.normalColors
         },
         "G13 Pro Model":{
-            image: G13,
+            image: [G13,G13_2,G13_3],
             price: 95.00,
             description: "The G13 carries the big barrel similar to the G243 with a flair on the handle similar to the G271. Excellent bat for the power hitter.",
             sizes: this.adultSizes,
             colors: this.normalColors
         },
         "G141 Pro Model":{
-            image: G141,
+            image: [G141,G141_2,G141_3],
             price: 95.00,
             description: "Quick through the zone with a thin handle and medium size barrel, our G141 model is a great bat for contact hitters.",
             sizes: this.adultSizes,
             colors: this.normalColors
         },
         "G161 Pro Model":{
-            image: G161,
+            image: [G161,G161_2,G161_3],
             price: 95.00,
             description: "Nicknamed “The Lumber,” our G161 model is fitted with a big barrel and thick handle.",
             sizes: this.adultSizes,
@@ -132,6 +177,26 @@ export default class Shop extends React.Component{
         
         
     }
+
+
+    changePic=()=>{
+        if (this.state.counter===2){
+            this.setState({
+                counter:0,
+                
+            }
+                
+            )
+        }else{
+            this.setState({
+                counter: this.state.counter + 1,
+                
+            }
+                
+            )
+        }
+    }
+
     showShop=()=>{
         this.setState({
             showShop: !this.state.showShop
@@ -194,13 +259,19 @@ export default class Shop extends React.Component{
         this.props.openSnack("success","Success: Added to cart",3000)
         return true
     }
+    componentWillUnmount(){
+        clearInterval(this.intervalID)
+    }
 
     componentDidMount(){
         window.scrollTo(0, 0)
-        
+        this.intervalID = setInterval(() => {
+            this.changePic()
+        }, 4000);
         this.setState({
             firstOpen:true,
-            isMobile:isMobile
+            isMobile:isMobile,
+            
         })
         var docWidth = document.documentElement.offsetWidth;
 [].forEach.call(
@@ -226,11 +297,12 @@ export default class Shop extends React.Component{
                     <ShopSelection openSnack={this.props.openSnack} onClick={this.openItem} firstOpen={this.state.firstOpen} show={!this.state.showShop} models={this.models}/>
                     <div style={{display:`${this.state.firstOpen?"none":""}`}} className={this.state.showShop?`shop-modal animated slideInDown fast`: "shop-modal animated slideOutUp fast"}>
                         
-                        <div className="model-image" style={{backgroundImage:`url(${this.models[this.state.itemClicked].image})`}}></div>
+                    <div key={this.state.counter} className="model-image animated fadeIn slow" style={{backgroundImage:`url(${this.models[this.state.itemClicked].image[this.state.counter]})`}}></div>
                         <div className="shop-model">
                             <div className="shop-model-model">
                                 {this.state.itemClicked}
                             </div>
+                            <div className="shop-model-model">{this.state.selectedWood}</div>
                             <div className={`shop-model-color ${this.state.selectedColor==="Select a Color"?"":"animated rotateIn "}`}>{this.state.selectedColor==="Select a Color"?"":this.state.selectedColor}</div>
                             <div className={`shop-model-size ${this.state.selectedSize?"animated rotateIn ":""}`}>{this.state.selectedSize?`${this.state.selectedSize}"`:""}</div>
                         
@@ -292,7 +364,43 @@ export default class Shop extends React.Component{
                                 <div className="color-name">{this.state.selectedColor}</div>
                         </div>
                         <div className="row">
-                            <DropDown text={this.state.selectedSize? `${this.state.selectedSize}"`:"Select Size"} choose={this.chooseSize}/>
+                            <DropDown text={this.state.selectedSize? `${this.state.selectedSize}"`:"Size"} choose={this.chooseSize}/>
+                            <div style={{display:"flex","flexDirection":"row"}}>
+      
+      
+                            <FormControl component="fieldset">
+
+<RadioGroup
+  aria-label="Wood"
+  name="Woods"
+  
+  value={this.state.selectedWood}
+  onChange={(v)=>{
+      this.setState({
+          selectedWood:v.target.value
+      })
+  }}
+  
+>
+  <FormControlLabel
+  
+    value="Maple"
+    control={<Radio color="primary" />}
+    label="Maple"
+    labelPlacement="start"
+  />
+  <FormControlLabel
+    value="Ash"
+    control={<Radio color="primary" />}
+    label="Ash"
+    labelPlacement="start"
+  />
+
+</RadioGroup>
+
+</FormControl>
+    </div>
+                            
                             <TextField
                                 onFocus={()=>{this.setState({engravingLabel:""})}}
                                 style={{borderColor:"blue"}}
@@ -318,6 +426,7 @@ export default class Shop extends React.Component{
                                         model: this.state.itemClicked,
                                         color: this.state.selectedColor,
                                         size: this.state.selectedSize,
+                                        wood: this.state.selectedWood,
                                         engraving: this.state.engraving,
                                         quantity:this.state.quantity
     

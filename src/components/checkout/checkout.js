@@ -1,5 +1,5 @@
 import React from 'react'
-import SmartPaymentButtons from 'react-smart-payment-buttons';
+import SmartPaymentButtons, {PayPalSDKWrapper} from 'react-smart-payment-buttons';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
@@ -8,6 +8,7 @@ import './checkout.css'
 export default class Checkout extends React.Component{
     state={
         items:[],
+        orderItems:[],
         batDivs:[],
         code:"",
         codeEntered: null,
@@ -28,11 +29,25 @@ export default class Checkout extends React.Component{
         "White Stain":"white-stain"
 
     }
+    
     makeCart=(arr)=>{
         console.log("my bat arr", arr)
         let divArr = []
+        let orderItems = []
         this.props.bats.forEach((element, i)=> {
             console.log("this",element.model)
+            orderItems.push(
+                {
+                    name: element.model,
+                    description: `${element.color}, ${element.size}", ${element.engraving?element.engraving:""}`,
+                    sku: "xyz-2654",
+                    unit_amount: {
+                        currency_code: "USD",
+                        value: "95.00"
+                    },
+                    quantity: element.quantity
+                }
+            )
             divArr.push(<div className="checkout-item" key={i}>
                 <div className="checkout-item-remove">
                     <IconButton  aria-label="Remove">
@@ -48,7 +63,8 @@ export default class Checkout extends React.Component{
         </div>)
         });
         this.setState({
-            batDivs:divArr
+            batDivs:divArr,
+            orderItems:orderItems
         })
     }
     handleCodeChange=(e)=>{
@@ -137,13 +153,51 @@ export default class Checkout extends React.Component{
                                 }}
                             />
                 <div className="total-price margin">Total ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div>
-                <div className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: "code not applied"}</div>
+                <div className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
                 {/* <div id="paypal-button-container"></div> */}
                 <div style={{width:"300px"}}>
       
-      <SmartPaymentButtons
-        
-      />
+                <PayPalSDKWrapper 
+                clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" 
+                
+                // disableFunding={['card', 'sepa','credit']}
+                >
+                    <SmartPaymentButtons
+
+                    createOrder={(d,a)=>{
+                        return a.order.create({
+                            purchase_units: [
+                                {
+                                    reference_id: "PUHF",
+                                    description: "Some description",
+                    
+                                    custom_id: "Something7364",
+                                    soft_descriptor: "Glomar Pro Bats",
+                                    amount: {
+                                        currency_code: "USD",
+                                        value: `${this.state.totalPrice-this.state.discount}`,
+                                        breakdown: {
+                                            item_total: {
+                                                currency_code: "USD",
+                                                value: `${this.state.totalPrice}`,
+                                                
+                                            },
+                                            discount:{
+                                                currency_code:"USD",
+                                                value:this.state.discount
+                                            }
+                                        }
+                                    },
+                                    items: this.state.orderItems,
+                    
+                                }
+                            ]
+                          });
+                    }}
+
+                    // onApprove={...}
+                    />
+                </PayPalSDKWrapper>
     </div>
             </div>
         )
