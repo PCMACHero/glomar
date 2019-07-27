@@ -1,7 +1,7 @@
 import 'intersection-observer'
 import React from 'react';
 import 'animate.css'
-
+import "../node_modules/video-react/dist/video-react.css";
 
 import {HashRouter, Route} from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -89,6 +89,7 @@ class App extends React.Component{
   }
 
   removeItem=(index)=>{
+    console.log("ran remove")
     let tempBats = this.state.cart.bats
     let totalQuantity= null
     tempBats.splice(index,1)
@@ -140,7 +141,11 @@ class App extends React.Component{
           <CustomizedSnackbars message={this.state.snackMessage} variant={this.state.snackVariant} time={this.state.snackTime} close={this.closeSnack} open={this.openSnack} isOpen={this.state.snackOpen}/>
           <Route path="/" exact component={HomePage}/>
           <Route path="/shop" render={(props) => <Shop updateCart={this.updateCart} openSnack={this.openSnack} {...props}  />}/>
-          <Route path="/checkout" render={(props) => <Checkout bats={this.state.cart.bats?this.state.cart.bats:""} updateCart={this.updateCart} openSnack={this.openSnack} quantity={this.state.cart.quantity} {...props}  />}/>
+
+          <Route path="/checkout" exact render={(props)=> <Checkout bats={this.state.cart.bats} removeItem={this.removeItem} updateCart={this.updateCart} 
+            openSnack={this.openSnack} quantity={this.state.cart.quantity} {...props}/>}/>
+          
+
           <Route path="/about" exact component={About}/>
 
           <div className="nav-buffer" style={{height:"64px",width:"100%"}}></div>
@@ -158,8 +163,8 @@ export default App;
 
 const theme = createMuiTheme({
   palette: {
-    primary: teal,
-    secondary: orange,
+    primary: indigo,
+    secondary: pink,
     error: red,
     dark: blueGrey,
     // Used by `getContrastText()` to maximize the contrast between the background and

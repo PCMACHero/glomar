@@ -5,6 +5,25 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    min-height: 100vh;
+}
+
+.shop-item{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 200px;
+    width:30%;
+    margin: 10px;
+}
+.shop-item-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 109, 0.265);
+    width: 90%;
+    height: 56px;
 }
 
 .quantity-row{
@@ -12,6 +31,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.quantity-row > div{
+    width: initial;
+}
+
 .input-fields{
     display: flex;
     flex-direction: column;
@@ -21,16 +45,34 @@
 .DropDown-root-106{
     justify-content: center;
 }
+/* engraving text */
+
+.MuiInputBase-input{
+    color:white !important;
+    border:0 !important;
+}
+
+.dum > .MuiFormControl-root{
+    width: 180px !important;
+    margin-left: 10px;
+}
+
 .shop-modal{
+    
     width: 80vw;
     height: 80vh;
-    background-color: rgb(93, 126, 134);
+    background-image: linear-gradient(to bottom right, rgb(3, 31, 82), rgb(64, 111, 199));
+    box-shadow: 2px 5px 10px 5px rgb(39, 50, 73);
     position: absolute;
     border-radius: 10px;
-    border: solid 1px rgb(99, 98, 98);
+    /* border: solid 1px rgb(99, 98, 98); */
     /* left: 10vw; */
     /* top: 64px; */
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .shop-modal > * {
     /* border-bottom: solid 1px rgb(58, 58, 58); */
@@ -39,6 +81,7 @@
    
 }
 .block{
+    padding: 10px;
     display: block;
     width: 100%;
 }
@@ -67,9 +110,9 @@
 
 .model-image{
     /* max-width: 500px; */
-    max-width: 400px;
+    max-width: 700px;
     height: 400px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -121,4 +164,76 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    max-width: 900px;
+    
 }
+
+.model-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+   
+}
+
+.shop-model{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 20px; */
+    /* height: 100px; */
+    
+}
+
+.shop-model > div{
+    padding: 5px;
+}
+
+@media only screen and (min-width: 769px) {
+    .shop-modal{
+    
+        width: 800px;
+        height: 800px;
+        position: absolute;
+        border-radius: 10px;
+        /* border: solid 1px rgb(99, 98, 98); */
+        /* left: 10vw; */
+        /* top: 64px; */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shop-model{
+        position: absolute;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.562);
+        width: 250px;
+        border-radius: 10px;
+        border-bottom: rgb(0, 230, 103) solid 5px;
+        /* padding: 20px; */
+        /* height: 100px; */
+        
+    }
+
+    .wide{
+        width: 500px;
+    }
+
+    .color-bar-box{
+        width: 600px;
+    }
+
+    .color-choice {
+        width: 66px;
+        height: 42px;
+    }
+  }

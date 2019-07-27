@@ -54,7 +54,7 @@ render(){
             style={{
               // marginLeft: theme.spacing.unit,
               // marginRight: theme.spacing.unit,
-              width: 80,
+              width: 100,
             }}
           
             margin="normal"

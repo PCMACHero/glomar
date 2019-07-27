@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 25px;
+    /* margin: 25px; */
 }
 .hide{
     display: none;
@@ -110,9 +110,7 @@ h3{
     z-index: 1;
 }
 
-.MuiSvgIcon-root-53{
-    
-}
+
 
 .carousel .slide img {
     width: 100%;
@@ -124,7 +122,7 @@ h3{
 }
 
 .hp-section{
-    width: 70vw;
+    width: 100%;
    
     background-image: url('./img/bg-stadium.jpg');
     /* padding: 50px; */

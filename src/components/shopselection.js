@@ -25,14 +25,15 @@ export default class ShopSelection extends React.Component{
       </Button>
                 </div>
                 <div className="shop-item" 
-                
+                style={{backgroundImage:`url(${this.props.models["G243 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G243 Pro Model")}}>
                 <div className="shop-item-image"
-                style={{backgroundImage:`url(${this.props.models["G243 Pro Model"].image[0]})`, backgroundSize:"cover"}}
+                
                 ></div>
                 <div className="shop-item-text">G243 Pro Model</div>
                 
                 </div>
+
                 <div className="shop-item"
                 style={{backgroundImage:`url(${this.props.models["GSoftball Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("GSoftball Pro Model")}}>
@@ -58,6 +59,7 @@ export default class ShopSelection extends React.Component{
                 onClick={()=>{this.props.onClick("G13 Pro Model")}}>
                 <div className="shop-item-text">G13 Pro Model</div>
                 </div>
+                
                 <div className="shop-item" 
                 style={{backgroundImage:`url(${this.props.models["G141 Pro Model"].image[0]})`, backgroundSize:"cover"}}
                 onClick={()=>{this.props.onClick("G141 Pro Model")}}>

@@ -236,7 +236,8 @@ export default class Shop extends React.Component{
             selectedColor: "Select a Color",
             selectedSize:null,
             engraving:"",
-            quantity:1
+            quantity:1,
+            selectedWood:"Maple",
         })
     }
     updateQuantity=(num)=>{
@@ -363,7 +364,7 @@ export default class Shop extends React.Component{
                 </div>
                                 <div className="color-name">{this.state.selectedColor}</div>
                         </div>
-                        <div className="row">
+                        <div className="row wide">
                             <DropDown text={this.state.selectedSize? `${this.state.selectedSize}"`:"Size"} choose={this.chooseSize}/>
                             <div style={{display:"flex","flexDirection":"row"}}>
       
@@ -385,13 +386,13 @@ export default class Shop extends React.Component{
   <FormControlLabel
   
     value="Maple"
-    control={<Radio color="primary" />}
+    control={<Radio color="secondary" />}
     label="Maple"
     labelPlacement="start"
   />
   <FormControlLabel
     value="Ash"
-    control={<Radio color="primary" />}
+    control={<Radio color="secondary" />}
     label="Ash"
     labelPlacement="start"
   />
@@ -400,25 +401,29 @@ export default class Shop extends React.Component{
 
 </FormControl>
     </div>
-                            
+                            <div className="dum">
                             <TextField
                                 onFocus={()=>{this.setState({engravingLabel:""})}}
-                                style={{borderColor:"blue"}}
+                                // style={{borderColor:"blue", color:"white"}}
                                 label={this.state.engravingLabel}
                                 variant="outlined"
-                                id="mui-theme-provider-outlined-input"
+                                // id="mui-theme-provider-outlined-input"
                                 onChange={(e)=>{this.handleEngravingChange(e)}}
                                 value={this.state.engraving}
                                 inputProps={{ maxLength: 20}}
                                 color="secondary"
                                 InputLabelProps={{
                                     shrink: false,
+                                    
                                 }}
                             />
+
+                            </div>
+                            
                         </div>
                         
                         <InputField quantity={this.state.quantity} update={this.updateQuantity}/>
-                        <div className="row">
+                        <div className="row wide">
                             <MyButton color="primary" onClick={()=>{this.showShop()}} text="Go Back"/>
                             <MyButton color="secondary" onClick={()=>{
                                 if(this.checkAdd()){

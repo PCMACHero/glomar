@@ -18,7 +18,7 @@ const styles = {
     flexGrow: 1,
   },
   grow: {
-    marginRight: "20px",
+    marginRight: "10px",
     color: "white"
   },
   menuButton: {

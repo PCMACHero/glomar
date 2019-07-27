@@ -52,3 +52,9 @@
     height: 24px;
     border-radius: 50%;
 }
+
+@media only screen and (min-width: 769px){
+    .checkout-items{
+        width: 600px;
+    }
+}

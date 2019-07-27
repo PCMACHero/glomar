@@ -48,10 +48,13 @@
     }
     .shop-model{
         position: absolute;
+        padding:  10px;
+        height: initial;
         top: 0;
         right: 10px;
         color:white;
-        border-bottom: 5px rgb(255, 255, 255) solid;
+        border-bottom: 2px rgb(0, 217, 156) solid;
+        background-color: rgba(35, 35, 35, 0.457);
     }
 
     .shop-item{
@@ -77,6 +80,11 @@
         
         background-repeat: no-repeat;
     }
+
+    .shop-model > div{
+        padding: 0;
+    }
+
     .shop-item-text{
         position: absolute;
         display: flex;
@@ -84,8 +92,10 @@
         align-items: center;
         width: 45vw;
         padding: 5px 0;
+        height: 20px;
+        
         /* height: 32vw; */
-        background-image: radial-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.459));
+        background-image: radial-gradient(rgba(0, 0, 0, 0.361),rgba(0, 0, 0, 0.459));
         border-radius: 5px;
         
         background-repeat: no-repeat;

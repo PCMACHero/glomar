@@ -1,9 +1,12 @@
 import React from 'react'
+import {Player} from 'video-react'
+import poster from './poster.png'
+import glomarVideo from './glomarprobats.mp4'
 import {Link} from 'react-router-dom'
 import { Parallax} from 'react-parallax';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import ShopIcon from '@material-ui/icons/Shop';
+import ShopIcon from '@material-ui/icons/ShoppingBasket';
 import './homepage.css'
 import MediaCard from '../card'
 import SvgIcon from '@material-ui/core/SvgIcon';
@@ -46,9 +49,9 @@ componentDidMount(){
 </SvgIcon>    
 <div className=" animated fadeIn  delay-2s" style={{zIndex:"3", marginTop:"100px"}}>
 <Link to={"/shop"} style={{ textDecoration: 'none' }}>
-<Button variant="contained" color="secondary"  className={styles.button}>
+<Button variant="contained" color="secondary"  className={styles.button} style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                 Shop Now
-                <ShopIcon className={styles.rightIcon} />
+                <ShopIcon style={{padding:"10px"}} className={styles.rightIcon} />
           </Button>
 </Link>
 
@@ -73,9 +76,12 @@ componentDidMount(){
                 )}}
               </InView>
               
+              
                
                 
               </div>
+              
+
               <InView threshold={this.threshold}>
                 {({ inView, ref }) => {
                   console.log("my ref 2", ref)
@@ -156,7 +162,12 @@ componentDidMount(){
                 }
             </InView>
             
-                
+            <Player
+            
+      playsInline
+      poster={poster}
+      src={glomarVideo}
+    />
             
 
             <InView threshold={this.threshold}>
@@ -181,7 +192,7 @@ componentDidMount(){
           <Link to={"/shop"} style={{ textDecoration: 'none'}}>
 <Button variant="contained" color="secondary"  className={styles.button}>
                 Shop Now
-                <ShopIcon className={styles.rightIcon} />
+                {/* <ShopIcon className={styles.rightIcon} /> */}
           </Button>
 </Link>
                 <div className="margin"></div>
@@ -199,10 +210,10 @@ const styles = theme => ({
       width: "150px",
     },
     leftIcon: {
-      marginRight: theme.spacing.unit,
+      marginRight: 30,
     },
     rightIcon: {
-      marginLeft: 20,
+      marginLeft: 30,
     },
     iconSmall: {
       fontSize: 20,

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
 import SmartPaymentButtons, {PayPalSDKWrapper} from 'react-smart-payment-buttons';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Delete';
@@ -16,7 +17,8 @@ export default class Checkout extends React.Component{
         batCount:null,
         codeLabel:"Enter a Promo Code",
         totalPrice:0,
-        discount:0
+        discount:0,
+        batCount:0
     }
     colorConvert = {
         "Unfinished": "unfinished",
@@ -39,7 +41,7 @@ export default class Checkout extends React.Component{
             orderItems.push(
                 {
                     name: element.model,
-                    description: `${element.color}, ${element.size}", ${element.engraving?element.engraving:""}`,
+                    description: `${element.color},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
                     sku: "xyz-2654",
                     unit_amount: {
                         currency_code: "USD",
@@ -50,8 +52,10 @@ export default class Checkout extends React.Component{
             )
             divArr.push(<div className="checkout-item" key={i}>
                 <div className="checkout-item-remove">
-                    <IconButton  aria-label="Remove">
-                        <RemoveIcon color="" />
+                    <IconButton  aria-label="Remove" onClick={()=>{
+                        this.props.removeItem(i)
+                    }}>
+                        <RemoveIcon style={{color:"white"}} />
                     </IconButton>
                 </div>
                 <div className={`checkout-item-color-box`}>
@@ -80,7 +84,12 @@ export default class Checkout extends React.Component{
                     this.checkIfDiscountShouldApply()
                 })
                 console.log("tried")
-                this.props.openSnack("success","Code added. Saved $"+this.state.discount+ ".",5000)
+                if(this.state.discount===0){
+                    this.props.openSnack("warning","Must buy at least 3 bats for deal.",5000)
+                }else{
+                    this.props.openSnack("success","Code added. Saved $"+this.state.discount+ ".",5000)
+                }
+                
             }
         })
         
@@ -95,10 +104,12 @@ export default class Checkout extends React.Component{
             this.props.openSnack("warning","Code Only Valid with 3 or More Bats",5000)
         }
     }
-    componentDidUpdate(prev){
-        console.log("prev",prev)
-        console.log("props",this.props.quantity)
-        if(this.props.bats !== prev.bats){
+    componentDidUpdate(prev,prevS){
+        console.log("prevProps",prev.bats.length)
+        console.log("props",this.props.bats.length)
+        console.log("prevState",prevS)
+        console.log("state",this.state)
+        if(this.state.batCount !== this.props.bats.length){
             console.log("bats changed", this.props.bats)
             this.makeCart(this.props.bats)
             let batCount = this.props.quantity
@@ -107,7 +118,7 @@ export default class Checkout extends React.Component{
             
             
             this.setState({
-                batCount:batCount,
+                batCount:this.props.bats.length,
                 totalPrice: batCount * 95,
                 discount: discountTimes * 55
             })
@@ -127,10 +138,13 @@ export default class Checkout extends React.Component{
             })
     }
     render(){
-        
+        console.log("RENDERED CHECKOUT")
+        console.log("state bat count", this.state.batCount)
+        console.log("prop bat count", this.props.bats)
         
         return (
-            <div className="center">
+            
+                <div className="center">
                 <h1 className="title">CHECKOUT</h1>
                 <div className="checkout-items">
                     {this.state.batDivs}
@@ -194,12 +208,19 @@ export default class Checkout extends React.Component{
                             ]
                           });
                     }}
-
-                    // onApprove={...}
+                    
+                    onApprove={(data, actions)=>{
+                        return actions.order.capture().then(function(details) {
+                            // Show a success message to the buyer
+                            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        });
+                    }}
                     />
                 </PayPalSDKWrapper>
     </div>
             </div>
+            
+            
         )
     }
 }
