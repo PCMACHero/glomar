@@ -18,7 +18,9 @@ export default class Checkout extends React.Component{
         codeLabel:"Enter a Promo Code",
         totalPrice:0,
         discount:0,
-        batCount:0
+        batCount:0,
+        grandTotal: 0,
+        batTotal:0
     }
     colorConvert = {
         "Unfinished": "unfinished",
@@ -31,7 +33,16 @@ export default class Checkout extends React.Component{
         "White Stain":"white-stain"
 
     }
-    
+    makeBreakDown=(quantity,discount)=>{
+        let batTotal = quantity * 95
+        let shipping = quantity>1?0:15
+        let discounts = this.state.codeApplied?discount:0
+        let grandTotal = batTotal + shipping - discounts
+        this.setState({
+            batTotal: batTotal,
+            grandTotal: grandTotal
+        })
+    }
     makeCart=(arr)=>{
         console.log("my bat arr", arr)
         let divArr = []
@@ -98,6 +109,8 @@ export default class Checkout extends React.Component{
         if(this.state.code==="3PACKDEAL" && this.props.quantity>2){
             this.setState({
                 codeApplied:true
+            },()=>{
+                this.makeBreakDown(this.props.quantity, this.state.discount)
             })
             console.log("triples", this.props.quantity%3)
         }else{
@@ -112,6 +125,7 @@ export default class Checkout extends React.Component{
         if(this.state.batCount !== this.props.bats.length){
             console.log("bats changed", this.props.bats)
             this.makeCart(this.props.bats)
+            
             let batCount = this.props.quantity
             let discountTimes = ~~(this.props.quantity / 3)
             console.log("bitwise", discountTimes)
@@ -121,6 +135,8 @@ export default class Checkout extends React.Component{
                 batCount:this.props.bats.length,
                 totalPrice: batCount * 95,
                 discount: discountTimes * 55
+            },()=>{
+                this.makeBreakDown(this.props.quantity, (discountTimes * 55))
             })
         }
     }
@@ -135,12 +151,14 @@ export default class Checkout extends React.Component{
                 batCount:this.props.quantity,
                 totalPrice: this.props.quantity * 95,
                 discount: discountTimes * 55
+            },()=>{
+                this.makeBreakDown(this.props.quantity, this.state.discount)
             })
     }
     render(){
         console.log("RENDERED CHECKOUT")
         console.log("state bat count", this.state.batCount)
-        console.log("prop bat count", this.props.bats)
+        console.log("discount", this.state.discount)
         
         return (
             
@@ -169,9 +187,12 @@ export default class Checkout extends React.Component{
                                 }}
                             />
                 </div>
-                
-                <div className="total-price margin">TOTAL ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div>
+                <div className="breakdown total-price">{this.props.quantity} Bats: ${this.props.quantity * 95}</div>
+                <div className="breakdown total-price" style={{color:this.props.quantity>1?"limegreen":""}}>{this.props.quantity>1?"Free Shipping":`Shipping: $15`}</div>
+                {/* <div className="total-price margin">TOTAL ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div> */}
                 <div style={{display:this.state.codeApplied?'':"none", color:"limegreen"}} className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
+                <div className="total-price margin">TOTAL ${this.state.grandTotal}</div>
+                
                 {/* <div id="paypal-button-container"></div> */}
                 <div style={{width:"300px"}}>
       
@@ -193,16 +214,26 @@ export default class Checkout extends React.Component{
                                     soft_descriptor: "Glomar Pro Bats",
                                     amount: {
                                         currency_code: "USD",
-                                        value: `${this.state.totalPrice-this.state.discount}`,
+                                        value: `${this.state.batTotal-(this.state.codeApplied?this.state.discount:0) + (this.props.quantity>1?0:15)}`,
                                         breakdown: {
+                                            shipping: {
+                                                currency_code: "USD",
+                                                value: (15),
+                                                
+                                            },
+                                            shipping_discount: {
+                                                currency_code: "USD",
+                                                value: this.props.quantity>1?15:0,
+                                                
+                                            },
                                             item_total: {
                                                 currency_code: "USD",
-                                                value: `${this.state.totalPrice}`,
+                                                value: `${this.state.batTotal}`,
                                                 
                                             },
                                             discount:{
                                                 currency_code:"USD",
-                                                value:this.state.discount
+                                                value:this.state.codeApplied?this.state.discount:0
                                             }
                                         }
                                     },
