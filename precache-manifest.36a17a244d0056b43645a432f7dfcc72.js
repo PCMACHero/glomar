@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f330d07b6cfa8a81a89e480e3d4210fc",
+    "revision": "c93651eb52b4f7e196bd194ebab5af21",
     "url": "/glomar/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/glomar/static/css/2.3bbbb964.chunk.css"
   },
   {
-    "revision": "4a9c5f012486204830c3",
-    "url": "/glomar/static/css/main.798a6a4f.chunk.css"
+    "revision": "26ba37cf5a74854dc448",
+    "url": "/glomar/static/css/main.27992e05.chunk.css"
   },
   {
     "revision": "c19d9556ef89da6292ba",
     "url": "/glomar/static/js/2.8bfde691.chunk.js"
   },
   {
-    "revision": "4a9c5f012486204830c3",
-    "url": "/glomar/static/js/main.15fd070f.chunk.js"
+    "revision": "26ba37cf5a74854dc448",
+    "url": "/glomar/static/js/main.b486138d.chunk.js"
   },
   {
     "revision": "3779eced2dee8d17a425",
@@ -132,8 +132,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/glomar/static/media/bg-stadium.c6545acd.jpg"
   },
   {
-    "revision": "0527552bcff3dbb742c96532846ccd61",
-    "url": "/glomar/static/media/glomar-bg-recolored.0527552b.jpg"
+    "revision": "1a6c4a5383f702f4686652402e25a8c7",
+    "url": "/glomar/static/media/glomar-bg-recolored-sm.1a6c4a53.jpg"
   },
   {
     "revision": "eb0be5c45af470c50fde95e571667892",
