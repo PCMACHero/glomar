@@ -14,7 +14,7 @@ const styles = {
     maxWidth: "100vw",
     width: '100vw',
     height: 500,
-    backgroundColor: "#F77D08",
+    backgroundColor: "#EF0046",
     color:'white'
     // margin: "10px",
     

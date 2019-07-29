@@ -100,4 +100,10 @@
         
         background-repeat: no-repeat;
     }
+
+    .promo{
+        height: auto;
+        border: none;
+        width: 100%;
+     }
   }

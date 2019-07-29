@@ -1,6 +1,23 @@
 .homepage{
-    background-image: linear-gradient(to right,black,rgb(66, 66, 66));
+    /* background-image: linear-gradient(to right,black,rgb(66, 66, 66)); */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
+
+.bot-border{
+    border-bottom: white solid 1px;
+}
+
+.gradient-border{
+    border: solid white 1px;
+    padding: 30px;
+    border-image: linear-gradient(to left, #ffffff 0%, #3a6bd5 100%);
+        border-image-slice: 1;
+        border-width: 0 0 3px 0 ;
+}
+
 .homepage-start{
     /* background-image: url('/images/glomar-bg-recolored.jpg');
     background-size: cover;
@@ -101,11 +118,17 @@ h3{
     
     
 }
-
+.react-parallax-content{
+    min-height: 700px;
+    height: 100vh;
+    max-height: 1100px;
+}
 .color-over{
     position: absolute;
     width: 100vw;
-    height: 700px;
+    min-height: 700px;
+    height: 100vh;
+    max-height: 1100px;
     background-color: rgba(0, 63, 100, 0.432);
     z-index: 1;
 }
@@ -138,3 +161,16 @@ h3{
 .DropDown-root-148{
     justify-content: center;
 }
+
+.carousel .slide {
+    background: none !important;
+}
+
+@media only screen and (min-width: 769px){
+    .promo{
+        height: 500px;
+        border: white 1px solid;
+        width: 800px;
+     }
+}
+

@@ -19,7 +19,7 @@ import MyCarousel from '../carousel';
 
 
 export default class HomePage extends React.Component{
-panelClass="animated fadeInRight "
+panelClass="animated slideInLeft "
 panelClassOut="animated fadeOut slow"
 threshold=.8
 componentDidMount(){
@@ -71,7 +71,7 @@ componentDidMount(){
                   return(
 
                   <div ref={ref} style={{height:"100%"}}>
-                    <h1 className={inView?"animated fadeIn slow delay-1s":""} style={{color:"white", fontSize:"3em"}}>WELCOME TO GLOMAR PRO BATS</h1>
+                    <h1 className={inView?"animated fadeIn slow delay-1s ":""} style={{color:"white", fontSize:"3em", textShadow:"5px 3px 15px black"}}>WELCOME TO GLOMAR PRO BATS</h1>
                   </div>
                 )}}
               </InView>
@@ -88,7 +88,7 @@ componentDidMount(){
                   return(
 
                   <div ref={ref} style={{height:"450px", display:"flex",justifyContent:"center", alignItems:"center"}}>
-                    <Typography className={inView?"animated fadeIn slow delay-1s":this.panelClassOut} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
+                    <Typography className={inView?"animated fadeIn slow delay-1s gradient-border":this.panelClassOut + ' gradient-border'} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
                       They have been used by professionals and trusted by professionals for years.  
                       Each bat is examined for quality assurance and top notch craftsmanship, they are made of the finest wood to ensure that they are strong enough for the pros, and the backyard.  
                       Glomar bats, a sure hit!
@@ -108,7 +108,7 @@ componentDidMount(){
                 return (
                   <div className="const-panel" ref={ref}>
                   <div className={inView?this.panelClass:this.panelClassOut}>
-                  <MediaCard  title="CUSTOMIZABLE" image={require('./img/bat1.jpg')} p="Choose the wood, length, finish, and engraving."/>
+                  <MediaCard  color="primary" title="CUSTOMIZABLE" image={require('./img/bat1.jpg')} p="Choose the wood, length, finish, and engraving."/>
                     
     
                   </div>
@@ -161,13 +161,15 @@ componentDidMount(){
                 }
                 }
             </InView>
+            <div className="promo">
+              <Player
+              
+              playsInline
+              poster={poster}
+              src={glomarVideo}
+            />
+            </div>
             
-            <Player
-            
-      playsInline
-      poster={poster}
-      src={glomarVideo}
-    />
             
 
             <InView threshold={this.threshold}>
@@ -176,7 +178,7 @@ componentDidMount(){
                   return(
 
                   <div ref={ref} style={{height:"450px", display:"flex",justifyContent:"center", alignItems:"center"}}>
-                    <Typography className={inView?"animated fadeIn slow delay-1s":this.panelClassOut} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
+                    <Typography className={inView?"animated fadeIn slow delay-1s gradient-border":this.panelClassOut + " gradient-border"} variant="h4" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
                       PLAYERS THAT HAVE USED GLOMAR
                     </Typography>                   
                   </div>
