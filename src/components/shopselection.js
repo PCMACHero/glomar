@@ -11,7 +11,7 @@ export default class ShopSelection extends React.Component{
         return (
            
                 
-                <div className={this.props.show?`shop-selection animated ${this.props.firstOpen?"slideInLeft":"slideInUp"} fast`:"shop-selection animated slideOutDown fast"} 
+                <div className={this.props.show?`shop-selection animated ${this.props.firstOpen?"slideInLeft":"slideInLeft"} fast`:"shop-selection animated slideOutRight  fast"} 
             // style={{display:this.props.show?"flex":"none"}}
                 
             >   

@@ -147,27 +147,31 @@ export default class Checkout extends React.Component{
                 <div className="center">
                 <h1 className="title">CHECKOUT</h1>
                 <div className="checkout-items">
+                    <div style={{fontSize:'1.5em',color:"white", display:this.state.batDivs.length===0?"":"none"}}>(No Items In Cart)</div>
                     {this.state.batDivs}
                 </div>
+                <div className="code">
                 <TextField
                                 onFocus={()=>{this.setState({codeLabel:""})}}
                                 
                                 disabled={this.state.codeApplied?true:false}
-                                style={{borderColor:"blue", margin:"10px"}}
+                                style={{borderColor:"white", margin:"10px"}}
                                 label={this.state.codeLabel}
                                 variant="outlined"
                                 id="mui-theme-provider-outlined-input"
                                 onChange={(e)=>{this.handleCodeChange(e)}}
                                 value={this.state.codeApplied?"Promo Code Applied!": this.state.code}
                                 inputProps={{ maxLength: 20}}
-                                color="secondary"
+                                color="primary"
                                 InputLabelProps={{
                                     shrink: false,
                                     
                                 }}
                             />
-                <div className="total-price margin">Total ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div>
-                <div className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
+                </div>
+                
+                <div className="total-price margin">TOTAL ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div>
+                <div style={{display:this.state.codeApplied?'':"none", color:"limegreen"}} className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
                 {/* <div id="paypal-button-container"></div> */}
                 <div style={{width:"300px"}}>
       

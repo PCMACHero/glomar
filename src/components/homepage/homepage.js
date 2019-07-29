@@ -34,9 +34,9 @@ componentDidMount(){
             <div className="color-over"></div>   
             <Parallax
             // blur={2}
-            bgImage={require('./img/glomar-bg-recolored.jpg')}
+            bgImage={require('./img/glomar-bg-recolored-sm.jpg')}
             bgImageAlt="the cat"
-            strength={400}
+            strength={600}
         >
             <div className="homepage-start">
 
@@ -70,7 +70,7 @@ componentDidMount(){
                   console.log("my ref 1", ref)
                   return(
 
-                  <div ref={ref} style={{height:"100%"}}>
+                  <div ref={ref} style={{height:"100%"}} className="center">
                     <h1 className={inView?"animated fadeIn slow delay-1s ":""} style={{color:"white", fontSize:"3em", textShadow:"5px 3px 15px black"}}>WELCOME TO GLOMAR PRO BATS</h1>
                   </div>
                 )}}
