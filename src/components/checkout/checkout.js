@@ -53,9 +53,9 @@ export default class Checkout extends React.Component{
             console.log("this",element.model)
             orderItems.push(
                 {
-                    name: element.model,
+                    name: `${element.color},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
                     description: `${element.color},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
-                    sku: "xyz-2654",
+                    sku: element.model,
                     unit_amount: {
                         currency_code: "USD",
                         value: "95.00"
@@ -169,7 +169,7 @@ export default class Checkout extends React.Component{
                 <div className="center">
                 <h1 className="title">CHECKOUT</h1>
                 <div className="checkout-items">
-                    <div style={{fontSize:'1.5em',color:"white", display:this.state.batDivs.length===0?"":"none"}}>(No Items In Cart)</div>
+                    <div style={{fontSize:'1.5em',color:"white", display:this.state.batDivs.length===0?"":"none"}}>(YOUR CART IS EMPTY)</div>
                     {this.state.batDivs}
                 </div>
                 <div className={this.state.message?"blur code":"code"}>
@@ -202,7 +202,7 @@ export default class Checkout extends React.Component{
                 
                 
                 {/* <div id="paypal-button-container"></div> */}
-                <div style={{width:"300px"}} className={this.state.message?"blur":""}>
+                <div style={{width:"300px", display:this.props.quantity===0?"none":""}} className={this.state.message?"blur":""}>
       
                 <PayPalSDKWrapper 
                 // clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" // Sandbox
