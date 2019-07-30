@@ -39,6 +39,20 @@ class DropDown extends React.Component {
   render() {
     const { classes } = this.props;
     const { open } = this.state;
+    let sizes = [<MenuItem onClick={(e)=>this.handleClose(e,31)}>31"</MenuItem>,
+    <MenuItem onClick={(e)=>this.handleClose(e,32)}>32"</MenuItem>,
+    <MenuItem onClick={(e)=>this.handleClose(e,32.5)}>32.5"</MenuItem>,
+    <MenuItem onClick={(e)=>this.handleClose(e,33)}>33"</MenuItem>,
+    <MenuItem onClick={(e)=>this.handleClose(e,33.5)}>33.5"</MenuItem>,
+    <MenuItem onClick={(e)=>this.handleClose(e,34)}>34"</MenuItem>]
+    if(this.props.sizes==="Youth"){
+      sizes = [<MenuItem onClick={(e)=>this.handleClose(e,26)}>26"</MenuItem>,
+      <MenuItem onClick={(e)=>this.handleClose(e,27)}>27"</MenuItem>,
+      <MenuItem onClick={(e)=>this.handleClose(e,28)}>28"</MenuItem>,
+      <MenuItem onClick={(e)=>this.handleClose(e,29)}>29"</MenuItem>,
+      <MenuItem onClick={(e)=>this.handleClose(e,30)}>30"</MenuItem>,
+      ]
+    }
 
     return (
       <div className={classes.root}>
@@ -66,12 +80,8 @@ class DropDown extends React.Component {
                 <Paper style={{zIndex:2}}>
                   <ClickAwayListener onClickAway={this.handleClose}>
                     <MenuList >
-                      <MenuItem onClick={(e)=>this.handleClose(e,31)}>31"</MenuItem>
-                      <MenuItem onClick={(e)=>this.handleClose(e,32)}>32"</MenuItem>
-                      <MenuItem onClick={(e)=>this.handleClose(e,32.5)}>32.5"</MenuItem>
-                      <MenuItem onClick={(e)=>this.handleClose(e,33)}>33"</MenuItem>
-                      <MenuItem onClick={(e)=>this.handleClose(e,33.5)}>33.5"</MenuItem>
-                      <MenuItem onClick={(e)=>this.handleClose(e,34)}>34"</MenuItem>
+                      
+                      {sizes}
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>

@@ -165,6 +165,9 @@
 .white-stain{
     background-color: whitesmoke;
 }
+.pink{
+    background-color: rgb(255, 94, 134);
+}
 
 .shop-selection{
     display: flex;

@@ -20,7 +20,8 @@ export default class Checkout extends React.Component{
         discount:0,
         batCount:0,
         grandTotal: 0,
-        batTotal:0
+        batTotal:0,
+        message:""
     }
     colorConvert = {
         "Unfinished": "unfinished",
@@ -43,6 +44,7 @@ export default class Checkout extends React.Component{
             grandTotal: grandTotal
         })
     }
+    
     makeCart=(arr)=>{
         console.log("my bat arr", arr)
         let divArr = []
@@ -168,12 +170,13 @@ export default class Checkout extends React.Component{
                     <div style={{fontSize:'1.5em',color:"white", display:this.state.batDivs.length===0?"":"none"}}>(No Items In Cart)</div>
                     {this.state.batDivs}
                 </div>
-                <div className="code">
+                <div className={this.state.message?"blur code":"code"}>
                 <TextField
                                 onFocus={()=>{this.setState({codeLabel:""})}}
+                                onBlur={()=>{this.setState({codeLabel:this.state.code===""?"Enter a Promo Code":""})}}
                                 
                                 disabled={this.state.codeApplied?true:false}
-                                style={{borderColor:"white", margin:"10px"}}
+                                style={{borderColor:"white"}}
                                 label={this.state.codeLabel}
                                 variant="outlined"
                                 id="mui-theme-provider-outlined-input"
@@ -187,14 +190,17 @@ export default class Checkout extends React.Component{
                                 }}
                             />
                 </div>
-                <div className="breakdown total-price">{this.props.quantity} Bats: ${this.props.quantity * 95}</div>
-                <div className="breakdown total-price" style={{color:this.props.quantity>1?"limegreen":""}}>{this.props.quantity>1?"Free Shipping":`Shipping: $15`}</div>
-                {/* <div className="total-price margin">TOTAL ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div> */}
-                <div style={{display:this.state.codeApplied?'':"none", color:"limegreen"}} className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
-                <div className="total-price margin">TOTAL ${this.state.grandTotal}</div>
+                <div className="breakdown-box" style={{display:this.props.quantity>0?"":"none"}}>
+                    <div className="breakdown total-price">{this.props.quantity} Bats: ${this.props.quantity * 95}</div>
+                    <div className="breakdown total-price" style={{color:this.props.quantity>1?"limegreen":""}}>{this.props.quantity>1?"Free Shipping":`Shipping: $15 (free with 2 or more)`}</div>
+                    {/* <div className="total-price margin">TOTAL ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div> */}
+                    <div style={{display:this.state.codeApplied?'':"none", color:"limegreen"}} className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
+                    <div className="total-price margin">TOTAL ${this.state.grandTotal}</div>
+                </div>
+                
                 
                 {/* <div id="paypal-button-container"></div> */}
-                <div style={{width:"300px"}}>
+                <div style={{width:"300px"}} className={this.state.message?"blur":""}>
       
                 <PayPalSDKWrapper 
                 clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" 
@@ -245,14 +251,41 @@ export default class Checkout extends React.Component{
                     }}
                     
                     onApprove={(data, actions)=>{
-                        return actions.order.capture().then(function(details) {
+                        return actions.order.capture().then((details)=> {
                             // Show a success message to the buyer
-                            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                            let status = "no status"
+                            let id = 0
+                            let name = "Customer"
+                            let message = ""
+                            if(details.payer.name.given_name){
+                                name = details.payer.name.given_name 
+                            }
+                            if(details.id){
+                                id = details.id
+                            }
+                            if(details.status){
+                                status = details.status
+                            }
+                            if(status==="COMPLETED"){
+                                message = `Thank you ${name}, the transaction is complete!`
+                            }else{
+                                message = `Transaction status: ${status}`
+                            }
+                            
+                            
+                            
+                            this.props.emptyCart()
+                            this.setState({
+                                message:message
+                            })
+                            
                         });
                     }}
                     />
                 </PayPalSDKWrapper>
     </div>
+                    
+                    <div className={this.state.message?"animated fadeIn message":""} style={{display:this.state.message?"":"none"}}>{this.state.message}</div>
             </div>
             
             

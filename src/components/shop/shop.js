@@ -361,11 +361,17 @@ export default class Shop extends React.Component{
                             // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
                             ></div>
                             </Tooltip>
+                            <Tooltip title="Pink" placement="bottom">
+                            <div onClick={()=>{this.chooseColor("Pink")}} className={this.state.colorHover==="Pink"?"color-choice pink animated pulse infinite":" color-choice pink"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"White Stain"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
                 </div>
                                 <div className="color-name">{this.state.selectedColor}</div>
                         </div>
                         <div className="row wide">
-                            <DropDown text={this.state.selectedSize? `${this.state.selectedSize}"`:"Size"} choose={this.chooseSize}/>
+                            <DropDown sizes={this.state.itemClicked==="G271 Pro YOUTH BAT"?"Youth":"Adult"} text={this.state.selectedSize? `${this.state.selectedSize}"`:"Size"} choose={this.chooseSize}/>
                             <div style={{display:"flex","flexDirection":"row"}}>
       
       

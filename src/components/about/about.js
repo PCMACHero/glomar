@@ -23,6 +23,7 @@ import { makeStyles } from '@material-ui/core/styles';
             borderBottom:"1px solid white"
             
         }
+        window.scrollTo(0, 0)
       
         return (
             <div className="center homepage">

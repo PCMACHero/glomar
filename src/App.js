@@ -143,7 +143,7 @@ class App extends React.Component{
           <Route path="/shop" render={(props) => <Shop updateCart={this.updateCart} openSnack={this.openSnack} {...props}  />}/>
 
           <Route path="/checkout" exact render={(props)=> <Checkout bats={this.state.cart.bats} removeItem={this.removeItem} updateCart={this.updateCart} 
-            openSnack={this.openSnack} quantity={this.state.cart.quantity} {...props}/>}/>
+            openSnack={this.openSnack} quantity={this.state.cart.quantity} emptyCart={this.emptyCart} {...props}/>}/>
           
 
           <Route path="/about" exact component={About}/>
