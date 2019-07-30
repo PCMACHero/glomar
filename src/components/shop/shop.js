@@ -99,7 +99,8 @@ export default class Shop extends React.Component{
         "Forest Green",
         "Navy Blue",
         "Royal Blue",
-        "White Stain"
+        "White Stain",
+        "Pink"
     ]
 
     youthColors=[

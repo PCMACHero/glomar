@@ -197,7 +197,11 @@ componentDidMount(){
                 {/* <ShopIcon className={styles.rightIcon} /> */}
           </Button>
 </Link>
+                
                 <div className="margin"></div>
+                <div className="margin"></div>
+                <div className="margin"></div>
+                <div className="buffer"></div>
           
          
           </div>

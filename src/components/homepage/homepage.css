@@ -6,6 +6,12 @@
     flex-direction: column;
 }
 
+.buffer{
+    height: 150px;
+    width: 100vw;
+    background-image: linear-gradient(to bottom right,black,rgb(36, 36, 36));
+}
+
 .bot-border{
     border-bottom: white solid 1px;
 }

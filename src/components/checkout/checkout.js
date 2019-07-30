@@ -161,6 +161,8 @@ export default class Checkout extends React.Component{
         console.log("RENDERED CHECKOUT")
         console.log("state bat count", this.state.batCount)
         console.log("discount", this.state.discount)
+        console.log("totalBat", this.state.batTotal)
+        console.log("discount", this.state.discount)
         
         return (
             
@@ -192,7 +194,7 @@ export default class Checkout extends React.Component{
                 </div>
                 <div className="breakdown-box" style={{display:this.props.quantity>0?"":"none"}}>
                     <div className="breakdown total-price">{this.props.quantity} Bats: ${this.props.quantity * 95}</div>
-                    <div className="breakdown total-price" style={{color:this.props.quantity>1?"limegreen":""}}>{this.props.quantity>1?"Free Shipping":`Shipping: $15 (free with 2 or more)`}</div>
+                    <div className="breakdown total-price" style={{color:this.props.quantity>1 || this.props.quantity===0?"limegreen":"", display:this.props.quantity<1?"none":""}}>{this.props.quantity>1?"Free Shipping":`Shipping: $15 (free with 2 or more)`}</div>
                     {/* <div className="total-price margin">TOTAL ${this.state.codeApplied? this.state.totalPrice - this.state.discount: this.state.totalPrice}</div> */}
                     <div style={{display:this.state.codeApplied?'':"none", color:"limegreen"}} className="total-price margin">{this.state.codeApplied? `Saved $${this.state.discount}`: ""}</div>
                     <div className="total-price margin">TOTAL ${this.state.grandTotal}</div>
@@ -203,7 +205,9 @@ export default class Checkout extends React.Component{
                 <div style={{width:"300px"}} className={this.state.message?"blur":""}>
       
                 <PayPalSDKWrapper 
-                clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" 
+                // clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" // Sandbox
+                clientId="AVaqOT36d-qD3Rty6ZWtzTBu7z66VRSYY7j_ivG2I9UEi_cjsWY9i-xhGCzXDkB_bih6poR-jZ_lSwHt" // Glomar Sandbox
+                // clientId="AeboFO9F9whNVTZJTld4AE0gPdY157jbAmsGh52rzyRJimrL0-IZPWHbE8Ld7vXs0Otm0NB93j0wPhcL" // Live Glomar
                 
                 // disableFunding={['card', 'sepa','credit']}
                 >
@@ -220,7 +224,7 @@ export default class Checkout extends React.Component{
                                     soft_descriptor: "Glomar Pro Bats",
                                     amount: {
                                         currency_code: "USD",
-                                        value: `${this.state.batTotal-(this.state.codeApplied?this.state.discount:0) + (this.props.quantity>1?0:15)}`,
+                                        value: `${this.state.batTotal-(this.state.codeApplied?this.state.discount:0) + (this.props.quantity>1 || this.props.quantity===0?0:15)}`,
                                         breakdown: {
                                             shipping: {
                                                 currency_code: "USD",
@@ -229,7 +233,7 @@ export default class Checkout extends React.Component{
                                             },
                                             shipping_discount: {
                                                 currency_code: "USD",
-                                                value: this.props.quantity>1?15:0,
+                                                value: this.props.quantity>1 || this.props.quantity===0?15:0,
                                                 
                                             },
                                             item_total: {
@@ -257,6 +261,7 @@ export default class Checkout extends React.Component{
                             let id = 0
                             let name = "Customer"
                             let message = ""
+                            
                             if(details.payer.name.given_name){
                                 name = details.payer.name.given_name 
                             }

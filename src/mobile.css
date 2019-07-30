@@ -54,6 +54,7 @@
         /* max-height: 100vh; */
         height: initial;
         width: 95%;
+        min-width: 320px;
     }
     .shop-model{
         position: absolute;

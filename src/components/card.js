@@ -20,7 +20,7 @@ const styles = {
     
   },
   media: {
-    height: 400,
+    height: 380,
     color:'white'
   },
 };
