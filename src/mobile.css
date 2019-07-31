@@ -9,6 +9,12 @@
         /* width: 80%; */
     }
 
+    .sandlot{
+        width: 100vh;
+        height: auto;
+        
+      }
+
     .color-choice {
         width: 38px;
         height: 42px;

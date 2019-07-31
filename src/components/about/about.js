@@ -1,4 +1,5 @@
 import React from 'react'
+import sandlot from './sandlot.png'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,7 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
       
       export default function Types() {
         const classes = useStyles();
-        const col = "primary"
+        const col = "secondary"
         const style = {
             color:"white",
             marginBottom:"50px",
@@ -29,7 +30,7 @@ import { makeStyles } from '@material-ui/core/styles';
             <div className="center homepage">
                 <div className="margin"></div>
                 <div className={classes.root}>
-            
+            <div className="center sandlot" style={{backgroundImage:`url(${sandlot})`,backgroundSize:"contain", backgroundRepeat:"no-repeat", margin:"30px"}}></div>
             <Typography variant="h4" gutterBottom color={col}>
             STRONGER
             </Typography>
