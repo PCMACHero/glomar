@@ -22,7 +22,8 @@ export default class Checkout extends React.Component{
         grandTotal: 0,
         batTotal:0,
         message:"",
-        quantity:null
+        quantity:null,
+        firstCheck:true
     }
     colorConvert = {
         "Unfinished": "unfinished",
@@ -46,6 +47,17 @@ export default class Checkout extends React.Component{
         })
     }
     
+    cancelCode=()=>{
+        this.setState({
+            codeApplied:false,
+            code:""
+        },()=>{
+            this.checkIfDiscountShouldApply()
+            this.makeBreakDown(this.props.quantity, this.state.discount)
+                this.props.openSnack("error","Code removed",5000)
+        })
+    }
+
     makeCart=(arr)=>{
         console.log("my bat arr", arr)
         let divArr = []
@@ -80,8 +92,16 @@ export default class Checkout extends React.Component{
             <div className="checkout-item-size">{element.size}"</div> 
             <div className="checkout-item-quantity">Qty {element.quantity}</div> 
             <div className="qty-cont">
-                <div className="qty" onClick={()=>{this.props.changeQuantity("add", i)}}>+</div> 
-                <div className="qty" onClick={()=>{this.props.changeQuantity("rem", i)}}>-</div>    
+                <div className="qty" onClick={()=>{
+                    this.props.changeQuantity("add", i)
+                    
+                    
+                    }}>+</div> 
+                <div className="qty" onClick={()=>{
+                    this.props.changeQuantity("rem", i)
+                    
+                    
+                    }}>-</div>    
             </div>
                    
         </div>)
@@ -92,7 +112,7 @@ export default class Checkout extends React.Component{
         })
     }
     handleCodeChange=(e)=>{
-   
+        
         this.setState({
             code: e.target.value.toUpperCase()
         
@@ -120,9 +140,11 @@ export default class Checkout extends React.Component{
                 codeApplied:true
             },()=>{
                 this.makeBreakDown(this.props.quantity, this.state.discount)
+                this.props.openSnack("success","Code worked",5000)
             })
             console.log("triples", this.props.quantity%3)
         }else{
+            
             this.props.openSnack("warning","Code Only Valid with 3 or More Bats",5000)
         }
     }
@@ -144,9 +166,18 @@ export default class Checkout extends React.Component{
                 batCount:this.props.items.length,
                 totalPrice: batCount * 95,
                 discount: discountTimes * 55,
-                quantity:this.props.quantity
+                quantity:this.props.quantity,
+                
             },()=>{
+                if(this.state.firstCheck===false){
+                    console.log("weeeeee ran")
+                    this.checkIfDiscountShouldApply()
+                }
+                
                 this.makeBreakDown(this.props.quantity, (discountTimes * 55))
+                this.setState({
+                    firstCheck:false
+                })
             })
         }
     }
@@ -174,31 +205,36 @@ export default class Checkout extends React.Component{
         
         return (
             
-                <div className="center">
+                <div className="checkout">
                 <h1 className="title">CHECKOUT</h1>
                 <div className="checkout-items">
                     <div style={{fontSize:'1.5em',color:"white", display:this.state.batDivs.length===0?"":"none"}}>(YOUR CART IS EMPTY)</div>
                     {this.state.batDivs}
                 </div>
                 <div className={this.state.message?"blur code":"code"}>
-                <TextField
-                                onFocus={()=>{this.setState({codeLabel:""})}}
-                                onBlur={()=>{this.setState({codeLabel:this.state.code===""?"Enter a Promo Code":""})}}
-                                
-                                disabled={this.state.codeApplied?true:false}
-                                style={{borderColor:"white"}}
-                                label={this.state.codeLabel}
-                                variant="outlined"
-                                id="mui-theme-provider-outlined-input"
-                                onChange={(e)=>{this.handleCodeChange(e)}}
-                                value={this.state.codeApplied?"Promo Code Applied!": this.state.code}
-                                inputProps={{ maxLength: 20}}
-                                color="primary"
-                                InputLabelProps={{
-                                    shrink: false,
+                    <div style={{display:"flex", justifyContent:"center",alignItems:"center", }}>
+                        <TextField
+                                    onFocus={()=>{this.setState({codeLabel:""})}}
+                                    onBlur={()=>{this.setState({codeLabel:this.state.code===""?"Enter a Promo Code":""})}}
                                     
-                                }}
-                            />
+                                    disabled={this.state.codeApplied?true:false}
+                                    style={{borderColor:"white"}}
+                                    label={this.state.codeLabel}
+                                    variant="outlined"
+                                    id="mui-theme-provider-outlined-input"
+                                    onChange={(e)=>{this.handleCodeChange(e)}}
+                                    value={this.state.code}
+                                    inputProps={{ maxLength: 20}}
+                                    color="primary"
+                                    InputLabelProps={{
+                                        shrink: false,
+                                        
+                                    }}
+                                />
+                        <div className="cancel-promo" onClick={()=>{this.cancelCode()}}>X</div>
+                    </div>
+
+                
                 </div>
                 <div className="breakdown-box" style={{display:this.props.quantity>0?"":"none"}}>
                     <div className="breakdown total-price">{this.props.quantity} Bats: ${this.props.quantity * 95}</div>

@@ -116,7 +116,9 @@
         
         background-repeat: no-repeat;
     }
-
+    .shop{
+        min-height: initial;
+    }
     .promo{
         height: auto;
         border: none;

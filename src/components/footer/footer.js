@@ -42,7 +42,7 @@ function Footer() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="default" elevation={3} className={classes.appBar}>
+      <AppBar position="" color="default" elevation={3} className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="initial">
             Glomar Pro Bats 2019©

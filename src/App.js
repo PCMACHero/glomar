@@ -179,7 +179,7 @@ class App extends React.Component{
 
           <Route path="/about" exact component={About}/>
 
-          <div className="nav-buffer" style={{height:"64px",width:"100%"}}></div>
+          {/* <div className="nav-buffer" style={{height:"64px",width:"100%"}}></div> */}
           <Footer/>
           </div>
         </MuiThemeProvider>
