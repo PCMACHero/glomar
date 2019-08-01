@@ -71,7 +71,7 @@ class App extends React.Component{
       tempItem.quantity= tempItem.quantity + 1
       quant++
     }else{
-      if(tempItem.quantity===0){
+      if(tempItem.quantity===1){
         this.removeItem(itemIndex)
         return
       }else{
