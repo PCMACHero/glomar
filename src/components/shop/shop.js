@@ -440,7 +440,8 @@ export default class Shop extends React.Component{
                                         size: this.state.selectedSize,
                                         wood: this.state.selectedWood,
                                         engraving: this.state.engraving,
-                                        quantity:this.state.quantity
+                                        quantity:this.state.quantity,
+                                        img:`url(${this.models[this.state.itemClicked].image[0]})`
     
                                     })
                                     this.showShop()

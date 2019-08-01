@@ -51,7 +51,7 @@ export default class Checkout extends React.Component{
         let divArr = []
         let orderItems = []
         this.props.items.forEach((element, i)=> {
-            console.log("this",element.model)
+            console.log("this",element)
             orderItems.push(
                 {
                     name: `${element.color},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
@@ -73,9 +73,10 @@ export default class Checkout extends React.Component{
                     </IconButton>
                 </div>
                 <div className={`checkout-item-color-box`}>
-                    <div className={`checkout-item-color ${this.colorConvert[element.color]}`}></div>
+                    {/* <div className={`checkout-item-color ${this.colorConvert[element.color]}`}></div> */}
+                    <div className="checkout-item-img" style={{backgroundImage:element.img}}></div>
                 </div>
-            <div className="checkout-item-model">{(element.model).toUpperCase()}</div>   
+            <div className="checkout-item-model">{(element.model).toUpperCase()} {(element.color).toUpperCase()}</div>   
             <div className="checkout-item-size">{element.size}"</div> 
             <div className="checkout-item-quantity">Qty {element.quantity}</div> 
             <div className="qty-cont">
