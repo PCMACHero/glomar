@@ -71,7 +71,7 @@ componentDidMount(){
                   return(
 
                   <div ref={ref} style={{height:"100%"}} className="center">
-                    <h1 className={inView?"animated fadeIn slow delay-1s ":""} style={{color:"white", fontSize:"3em", textShadow:"5px 3px 15px black"}}>WELCOME TO GLOMAR PRO BATS</h1>
+                    <h1 className={inView?"animated fadeIn slow  ":""} style={{color:"white", fontSize:"3em", textShadow:"5px 3px 15px black"}}>WELCOME TO GLOMAR PRO BATS</h1>
                   </div>
                 )}}
               </InView>
@@ -88,7 +88,7 @@ componentDidMount(){
                   return(
 
                   <div ref={ref} style={{height:"450px", display:"flex",justifyContent:"center", alignItems:"center"}}>
-                    <Typography className={inView?"animated fadeIn slow delay-1s gradient-border":this.panelClassOut + ' gradient-border'} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
+                    <Typography className={inView?"animated fadeIn slow  gradient-border":this.panelClassOut + ' gradient-border'} variant="h5" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
                       They have been used by professionals and trusted by professionals for years.  
                       Each bat is examined for quality assurance and top notch craftsmanship, they are made of the finest wood to ensure that they are strong enough for the pros, and the backyard.  
                       Glomar bats, a sure hit!
@@ -131,7 +131,7 @@ componentDidMount(){
               <div 
                className={inView?this.panelClass:this.panelClassOut} 
               >
-              <MediaCard title="A BAT FOR EVERY LEVEL" image={require('./img/softball.jpeg')} p="Bats for youth, softball, and pros."/>
+              <MediaCard title="A BAT FOR EVERY LEVEL" image={require('./img/softball-sm.jpg')} p="Bats for youth, softball, and pros."/>
                 
 
               </div>
@@ -151,7 +151,7 @@ componentDidMount(){
               <div 
                className={inView?this.panelClass:this.panelClassOut} 
               >
-              <MediaCard title="BULK PRICING" image={require('./img/team.jpeg')} p="Perfect for leagues, teams, and families."/>
+              <MediaCard title="BULK PRICING" image={require('./img/team-sm.jpg')} p="Perfect for leagues, teams, and families."/>
                 
 
               </div>
@@ -177,8 +177,8 @@ componentDidMount(){
                   console.log("my ref 2", ref)
                   return(
 
-                  <div ref={ref} style={{height:"450px", display:"flex",justifyContent:"center", alignItems:"center"}}>
-                    <Typography className={inView?"animated fadeIn slow delay-1s gradient-border":this.panelClassOut + " gradient-border"} variant="h4" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
+                  <div ref={ref} style={{padding:"64px", display:"flex",justifyContent:"center", alignItems:"center"}}>
+                    <Typography className={inView?"animated fadeIn slow  gradient-border":this.panelClassOut + " gradient-border"} variant="h4" color="primary" style={{width:"80%", color:"white", margin: "24px 0px",}}>
                       PLAYERS THAT HAVE USED GLOMAR
                     </Typography>                   
                   </div>
@@ -201,7 +201,7 @@ componentDidMount(){
                 <div className="margin"></div>
                 <div className="margin"></div>
                 <div className="margin"></div>
-                <div className="buffer"></div>
+                {/* <div className="buffer"></div> */}
           
          
           </div>

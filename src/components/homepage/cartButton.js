@@ -53,11 +53,13 @@ function SwipeableTemporaryDrawer(props) {
         {props.bats.map((bat, index) => (
           <ListItem button key={index}>
             <ListItemIcon onClick={()=>props.removeItem(index)}><RemoveIcon color="error"/></ListItemIcon>
-            <ListItemText primary={`${bat.model} (x${bat.quantity})`}  />
+            <ListItemText primary={`${bat.model} - ${bat.wood} / ${bat.color} / ${bat.size}" (qty ${bat.quantity})`}  />
           </ListItem>
         ))}
-        <ListItem onClick={()=>props.emptyCart()} button>
-            <ListItemIcon><RemoveIcon color="error"/></ListItemIcon>
+        <ListItem onClick={()=>props.emptyCart()} style={{backgroundColor:"red", color:"white"}} button>
+            <ListItemIcon>
+              {/* <RemoveIcon color="error"/> */}
+              </ListItemIcon>
             <ListItemText primary="Empty Your Cart"  />
           </ListItem>
       </List>

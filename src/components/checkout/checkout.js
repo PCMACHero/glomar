@@ -21,7 +21,8 @@ export default class Checkout extends React.Component{
         batCount:0,
         grandTotal: 0,
         batTotal:0,
-        message:""
+        message:"",
+        quantity:null
     }
     colorConvert = {
         "Unfinished": "unfinished",
@@ -49,7 +50,7 @@ export default class Checkout extends React.Component{
         console.log("my bat arr", arr)
         let divArr = []
         let orderItems = []
-        this.props.bats.forEach((element, i)=> {
+        this.props.items.forEach((element, i)=> {
             console.log("this",element.model)
             orderItems.push(
                 {
@@ -76,7 +77,12 @@ export default class Checkout extends React.Component{
                 </div>
             <div className="checkout-item-model">{(element.model).toUpperCase()}</div>   
             <div className="checkout-item-size">{element.size}"</div> 
-            <div className="checkout-item-quantity">Qty {element.quantity}</div>           
+            <div className="checkout-item-quantity">Qty {element.quantity}</div> 
+            <div className="qty-cont">
+                <div className="qty" onClick={()=>{this.props.changeQuantity("add", i)}}>+</div> 
+                <div className="qty" onClick={()=>{this.props.changeQuantity("rem", i)}}>-</div>    
+            </div>
+                   
         </div>)
         });
         this.setState({
@@ -120,13 +126,13 @@ export default class Checkout extends React.Component{
         }
     }
     componentDidUpdate(prev,prevS){
-        console.log("prevProps",prev.bats.length)
-        console.log("props",this.props.bats.length)
+        console.log("prevProps",prev.items.length)
+        console.log("props",this.props.items.length)
         console.log("prevState",prevS)
         console.log("state",this.state)
-        if(this.state.batCount !== this.props.bats.length){
-            console.log("bats changed", this.props.bats)
-            this.makeCart(this.props.bats)
+        if(this.state.quantity !== this.props.quantity){
+            console.log("bats changed", this.props.items)
+            this.makeCart(this.props.items)
             
             let batCount = this.props.quantity
             let discountTimes = ~~(this.props.quantity / 3)
@@ -134,9 +140,10 @@ export default class Checkout extends React.Component{
             
             
             this.setState({
-                batCount:this.props.bats.length,
+                batCount:this.props.items.length,
                 totalPrice: batCount * 95,
-                discount: discountTimes * 55
+                discount: discountTimes * 55,
+                quantity:this.props.quantity
             },()=>{
                 this.makeBreakDown(this.props.quantity, (discountTimes * 55))
             })
@@ -144,7 +151,7 @@ export default class Checkout extends React.Component{
     }
     componentDidMount(){
         
-        this.makeCart(this.props.bats)
+        this.makeCart(this.props.items)
             let batCount = 0
             let discountTimes = ~~(this.props.quantity / 3)
             

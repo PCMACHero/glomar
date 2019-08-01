@@ -61,6 +61,37 @@ class App extends React.Component{
     })
   }
 
+  changeQuantity=(addRemove, itemIndex )=>{
+    let quant= this.state.cart.quantity
+    let tempBats = this.state.cart.bats
+    let tempItem = this.state.cart.bats[itemIndex]
+    console.log("erehrjehrjehrjhejrh temp item", tempItem)
+    if(addRemove==="add"){
+      console.log("hhhhhhhhhhhh its add")
+      tempItem.quantity= tempItem.quantity + 1
+      quant++
+    }else{
+      if(tempItem.quantity===0){
+        this.removeItem(itemIndex)
+        return
+      }else{
+        tempItem.quantity = tempItem.quantity - 1
+        quant--
+      }
+      
+    }
+    console.log("erehrjehrjehrjhejrh temp item 2", tempItem)
+    tempBats[itemIndex]= tempItem
+    this.setState({
+      cart: {bats:tempBats,
+      quantity: quant}
+    },()=>{
+      localStorage.setItem("cart", JSON.stringify(this.state.cart))
+    })
+
+
+  }
+
   updateCart=(quantity,bat)=>{
     if(!quantity){
       return
@@ -126,7 +157,7 @@ class App extends React.Component{
       this.setState({
         cart:JSON.parse(cart) 
       },()=>{
-        console.log("Cart quantity", this.state.cart.quantity)
+        console.log("Cart", this.state.cart)
       })
     }
   }
@@ -142,7 +173,7 @@ class App extends React.Component{
           <Route path="/" exact component={HomePage}/>
           <Route path="/shop" render={(props) => <Shop updateCart={this.updateCart} openSnack={this.openSnack} {...props}  />}/>
 
-          <Route path="/checkout" exact render={(props)=> <Checkout bats={this.state.cart.bats} removeItem={this.removeItem} updateCart={this.updateCart} 
+          <Route path="/checkout" exact render={(props)=> <Checkout items={this.state.cart.bats} removeItem={this.removeItem} updateCart={this.updateCart} changeQuantity={this.changeQuantity}
             openSnack={this.openSnack} quantity={this.state.cart.quantity} emptyCart={this.emptyCart} {...props}/>}/>
           
 

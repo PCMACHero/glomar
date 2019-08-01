@@ -153,7 +153,7 @@ h3{
 .hp-section{
     width: 100%;
    
-    background-image: url('./img/bg-stadium.jpg');
+    background-image: url('./img/bg-stadium-sm.jpg');
     /* padding: 50px; */
     background-size: cover;
     height: 400px;
@@ -170,6 +170,10 @@ h3{
 
 .carousel .slide {
     background: none !important;
+}
+
+.promo{
+    margin: 64px 0;
 }
 
 @media only screen and (min-width: 769px){
