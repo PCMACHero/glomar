@@ -253,8 +253,8 @@ export default class Checkout extends React.Component{
       
                 <PayPalSDKWrapper 
                 // clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" // Sandbox
-                clientId="AVaqOT36d-qD3Rty6ZWtzTBu7z66VRSYY7j_ivG2I9UEi_cjsWY9i-xhGCzXDkB_bih6poR-jZ_lSwHt" // Glomar Sandbox
-                // clientId="AeboFO9F9whNVTZJTld4AE0gPdY157jbAmsGh52rzyRJimrL0-IZPWHbE8Ld7vXs0Otm0NB93j0wPhcL" // Live Glomar
+                // clientId="AVaqOT36d-qD3Rty6ZWtzTBu7z66VRSYY7j_ivG2I9UEi_cjsWY9i-xhGCzXDkB_bih6poR-jZ_lSwHt" // Glomar Sandbox
+                clientId="AeboFO9F9whNVTZJTld4AE0gPdY157jbAmsGh52rzyRJimrL0-IZPWHbE8Ld7vXs0Otm0NB93j0wPhcL" // Live Glomar
                 
                 // disableFunding={['card', 'sepa','credit']}
                 >
@@ -326,10 +326,25 @@ export default class Checkout extends React.Component{
                             
                             
                             
-                            this.props.emptyCart()
+                            
                             this.setState({
-                                message:message
-                            })
+                                message:message,
+                                items:[],
+        orderItems:[],
+        batDivs:[],
+        code:"",
+        codeEntered: null,
+        codeApplied: null,
+        batCount:null,
+        codeLabel:"Enter a Promo Code",
+        totalPrice:0,
+        discount:0,
+        batCount:0,
+        grandTotal: 0,
+        batTotal:0,
+        
+        quantity:null,
+                            },()=> this.props.emptyCart())
                             
                         });
                     }}
