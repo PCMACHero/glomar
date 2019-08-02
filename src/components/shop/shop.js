@@ -299,7 +299,11 @@ export default class Shop extends React.Component{
                     <ShopSelection openSnack={this.props.openSnack} onClick={this.openItem} firstOpen={this.state.firstOpen} show={!this.state.showShop} models={this.models}/>
                     <div style={{display:`${this.state.firstOpen?"none":""}`}} className={this.state.showShop?`shop-modal animated slideInDown fast`: "shop-modal animated slideOutUp fast"}>
                         
-                    <div key={this.state.counter} className="model-image animated fadeIn slow" style={{backgroundImage:`url(${this.models[this.state.itemClicked].image[this.state.counter]})`}}></div>
+                    <div key={this.state.counter} className="model-image " style={{backgroundImage:`url(${this.models[this.state.itemClicked].image[this.state.counter]})`}}>
+                        <p className="text" >
+                        {this.models[this.state.itemClicked].description}</p>
+                        </div>
+                    
                         <div className="shop-model">
                             <div className="shop-model-model">
                                 {this.state.itemClicked}

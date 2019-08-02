@@ -2,6 +2,11 @@
     body{
         width: 100%;
    }
+
+   p{
+       font-size: .7em;
+   }
+
     .card-container{
         flex-direction: column;
     }
@@ -50,8 +55,7 @@
         border: none;
         background-size: cover;
         display: flex;
-        justify-content: center;
-        align-items: center;
+       
         padding: 0;
         background-position: center;
         

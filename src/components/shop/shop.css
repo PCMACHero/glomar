@@ -16,6 +16,14 @@
     height: 100vh;
 }
 
+.text{
+    background-color: rgba(43, 43, 43, 0.712);
+    padding: 10px;
+    margin: 0;
+    
+    
+}
+
 .shop-item{
     display: flex;
     justify-content: center;
@@ -118,14 +126,15 @@
 } */
 
 .model-image{
+    padding: 0;
     /* max-width: 500px; */
-    max-width: 700px;
-    height: 400px;
+    max-width: 720px;
+    height: 420px;
     /* border: 1px solid black; */
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     
 }
 
@@ -183,8 +192,9 @@
 .model-image{
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 600px;
+    align-items: flex-end;
+    width: 700px;
+    
    
 }
 
