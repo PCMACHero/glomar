@@ -144,8 +144,11 @@ export default class Checkout extends React.Component{
             })
             console.log("triples", this.props.quantity%3)
         }else{
+            if(this.state.codeApplied){
+                console.log("IT THINKS CODE APPLIED")
+                this.props.openSnack("warning","Code Only Valid with 3 or More Bats",5000)
+            }
             
-            this.props.openSnack("warning","Code Only Valid with 3 or More Bats",5000)
         }
     }
     componentDidUpdate(prev,prevS){
