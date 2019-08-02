@@ -27,6 +27,7 @@
     height: 55px;
     border-left: solid rgb(139, 139, 139) 1px;
     background-image: linear-gradient(to bottom right, white, rgb(212, 212, 212));
+    cursor: pointer;
 }
 
 .qty-cont{
@@ -53,6 +54,7 @@
     border-left: 1px solid rgb(223, 223, 223);
     color:black;
     /* border: solid 1px blue; */
+    cursor: pointer;
 }
 
 .checkout-item-img{

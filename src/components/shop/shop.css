@@ -32,6 +32,7 @@
     width:30%;
     margin: 10px;
     box-shadow: 5px 3px 15px 2px grey;
+    cursor: pointer;
 }
 .shop-item-text{
     display: flex;
@@ -148,6 +149,7 @@
 .color-choice{
     width: 42px;
     height: 42px;
+    cursor: pointer;
   
 
 }
