@@ -34,6 +34,12 @@
     box-shadow: 5px 3px 15px 2px grey;
     cursor: pointer;
 }
+
+.shop-item:hover{
+    transition: .1s ease-in-out;
+    box-shadow: 0 0 10px 3px rgb(29, 29, 29);
+}
+
 .shop-item-text{
     display: flex;
     justify-content: center;
@@ -152,6 +158,21 @@
     cursor: pointer;
   
 
+}
+
+.color-name{
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+
+.pulse{
+    box-shadow: 0 0 1px 3px rgb(255, 255, 255);
+}
+
+.selected-color{
+    transition: .2s ease-in-out transform;
+    transform: scale(1.3);
+    /* border: 1px solid rgb(168, 168, 168); */
 }
 
 .unfinished{

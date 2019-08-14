@@ -1,5 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
+import insta from '../images/social/Instagram.svg'
+import facebook from '../images/social/Facebook.svg'
 import SmartPaymentButtons, {PayPalSDKWrapper} from 'react-smart-payment-buttons';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Delete';
@@ -23,7 +25,8 @@ export default class Checkout extends React.Component{
         batTotal:0,
         message:"",
         quantity:null,
-        firstCheck:true
+        firstCheck:true,
+        submitText:"ENTER"
     }
     colorConvert = {
         "Unfinished": "unfinished",
@@ -50,7 +53,8 @@ export default class Checkout extends React.Component{
     cancelCode=()=>{
         this.setState({
             codeApplied:false,
-            code:""
+            code:"",
+            submitText:"ENTER"
         },()=>{
             this.checkIfDiscountShouldApply()
             this.makeBreakDown(this.props.quantity, this.state.discount)
@@ -79,6 +83,7 @@ export default class Checkout extends React.Component{
             divArr.push(<div className="checkout-item" key={i}>
                 <div className="checkout-item-remove">
                     <IconButton  aria-label="Remove" onClick={()=>{
+                        if(window.confirm("Are you sure you wish to remove this item?"))
                         this.props.removeItem(i)
                     }}>
                         <RemoveIcon style={{color:"white"}} />
@@ -98,7 +103,12 @@ export default class Checkout extends React.Component{
                     
                     }}>+</div> 
                 <div className="qty" onClick={()=>{
+                    if(element.quantity===1){
+                        if(window.confirm("Are you sure you wish to remove this item?"))this.props.changeQuantity("rem", i)
+                        return
+                    }
                     this.props.changeQuantity("rem", i)
+                    
                     
                     
                     }}>-</div>    
@@ -111,26 +121,49 @@ export default class Checkout extends React.Component{
             orderItems:orderItems
         })
     }
+
+    handleCodeSubmit=(code)=>{
+        if(code==="3PACKDEAL"){
+            this.setState({
+                codeEntered:true
+            },()=>{
+                this.checkIfDiscountShouldApply()
+            })
+            console.log("tried")
+            if(this.state.discount===0){
+                this.props.openSnack("warning","Must buy at least 3 bats for deal.",5000)
+            }else{
+                this.props.openSnack("success","Code added. Saved $"+this.state.discount+ ".",5000)
+                this.setState({
+                    submitText:"CANCEL"
+                })
+            }
+            
+        }else{
+            this.props.openSnack("warning","Not a valid code",5000)
+        }
+    }
+
     handleCodeChange=(e)=>{
         
         this.setState({
             code: e.target.value.toUpperCase()
         
         },()=>{
-            if(this.state.code==="3PACKDEAL"){
-                this.setState({
-                    codeEntered:true
-                },()=>{
-                    this.checkIfDiscountShouldApply()
-                })
-                console.log("tried")
-                if(this.state.discount===0){
-                    this.props.openSnack("warning","Must buy at least 3 bats for deal.",5000)
-                }else{
-                    this.props.openSnack("success","Code added. Saved $"+this.state.discount+ ".",5000)
-                }
+            // if(this.state.code==="3PACKDEAL"){
+            //     this.setState({
+            //         codeEntered:true
+            //     },()=>{
+            //         this.checkIfDiscountShouldApply()
+            //     })
+            //     console.log("tried")
+            //     if(this.state.discount===0){
+            //         this.props.openSnack("warning","Must buy at least 3 bats for deal.",5000)
+            //     }else{
+            //         this.props.openSnack("success","Code added. Saved $"+this.state.discount+ ".",5000)
+            //     }
                 
-            }
+            // }
         })
         
     }
@@ -219,7 +252,9 @@ export default class Checkout extends React.Component{
                         <TextField
                                     onFocus={()=>{this.setState({codeLabel:""})}}
                                     onBlur={()=>{this.setState({codeLabel:this.state.code===""?"Enter a Promo Code":""})}}
-                                    
+                                    onKeyPress={(e)=>{if(e.key==="Enter"){
+                                        this.handleCodeSubmit(this.state.code)
+                                    }}}
                                     disabled={this.state.codeApplied?true:false}
                                     style={{borderColor:"white"}}
                                     label={this.state.codeLabel}
@@ -234,7 +269,18 @@ export default class Checkout extends React.Component{
                                         
                                     }}
                                 />
-                        <div className="cancel-promo" onClick={()=>{this.cancelCode()}}>X</div>
+                        <div className="cancel-promo" onClick={()=>{
+                            if(this.state.submitText==="ENTER"){
+                                this.handleCodeSubmit(this.state.code)}
+                                else{
+                                this.cancelCode()
+                                }
+                            }
+                            
+                            }
+                            
+                            
+                            >{this.state.submitText}</div>
                     </div>
 
                 
@@ -253,8 +299,8 @@ export default class Checkout extends React.Component{
       
                 <PayPalSDKWrapper 
                 // clientId="Ac60io4KQfcaPv3HbVbKMMyRdaBJlTm65wq36jcuFLHwPHlIno8ZEW8ktKOQhY90icbFyMlIbndAfIoU" // Sandbox
-                // clientId="AVaqOT36d-qD3Rty6ZWtzTBu7z66VRSYY7j_ivG2I9UEi_cjsWY9i-xhGCzXDkB_bih6poR-jZ_lSwHt" // Glomar Sandbox
-                clientId="AeboFO9F9whNVTZJTld4AE0gPdY157jbAmsGh52rzyRJimrL0-IZPWHbE8Ld7vXs0Otm0NB93j0wPhcL" // Live Glomar
+                clientId="AVaqOT36d-qD3Rty6ZWtzTBu7z66VRSYY7j_ivG2I9UEi_cjsWY9i-xhGCzXDkB_bih6poR-jZ_lSwHt" // Glomar Sandbox
+                // clientId="AeboFO9F9whNVTZJTld4AE0gPdY157jbAmsGh52rzyRJimrL0-IZPWHbE8Ld7vXs0Otm0NB93j0wPhcL" // Live Glomar
                 
                 // disableFunding={['card', 'sepa','credit']}
                 >
@@ -319,7 +365,7 @@ export default class Checkout extends React.Component{
                                 status = details.status
                             }
                             if(status==="COMPLETED"){
-                                message = `Thank you ${name}, the transaction is complete!`
+                                message = `Thank you ${name}, the transaction is complete! Your customized order (order id:${id}) will ship in 2-3 weeks.`
                             }else{
                                 message = `Transaction status: ${status}`
                             }
@@ -353,6 +399,11 @@ export default class Checkout extends React.Component{
     </div>
                     
                     <div className={this.state.message?"animated fadeIn message":""} style={{display:this.state.message?"":"none"}}>{this.state.message}</div>
+                    <div className="social-bar">
+                      <a href="https://www.instagram.com/Glomarprobats_official/" target="_blank" className="social" style={{backgroundImage: `url(${insta})`}}></a>
+                      <a href="https://www.facebook.com/glomarprobats/" target="_blank" className="social" style={{backgroundImage: `url(${facebook})`}}></a>
+
+                    </div>
             </div>
             
             

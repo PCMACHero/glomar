@@ -52,11 +52,23 @@ function SwipeableTemporaryDrawer(props) {
       <List>
         {props.bats.map((bat, index) => (
           <ListItem button key={index}>
-            <ListItemIcon onClick={()=>props.removeItem(index)}><RemoveIcon color="error"/></ListItemIcon>
+            <ListItemIcon onClick={()=>{
+              
+              if (window.confirm('Are you sure you wish to remove this item?')){props.removeItem(index)}
+
+              }}><RemoveIcon color="error"/></ListItemIcon>
             <ListItemText primary={`${bat.model} - ${bat.wood} / ${bat.color} / ${bat.size}" (qty ${bat.quantity})`}  />
           </ListItem>
         ))}
-        <ListItem onClick={()=>props.emptyCart()} style={{backgroundColor:"red", color:"white"}} button>
+        <ListItem onClick={() => { if (window.confirm('Are you sure you wish to remove all items?')) props.emptyCart() } }
+        
+         
+          
+          
+          // props.emptyCart()
+        
+          
+          style={{backgroundColor:"red", color:"white"}} button>
             <ListItemIcon>
               {/* <RemoveIcon color="error"/> */}
               </ListItemIcon>
@@ -66,12 +78,13 @@ function SwipeableTemporaryDrawer(props) {
       <Divider />
       <List>
           <Link to="/checkout" style={{ textDecoration: 'none' }} >
-          <ListItem button>
+          <ListItem button onClick={toggleDrawer(side, false)}
+              onKeyDown={toggleDrawer(side, false)}>
               <ListItemIcon><InboxIcon /></ListItemIcon>
               
               <ListItemText primary={"Checkout"} 
-              onClick={toggleDrawer(side, false)}
-              onKeyDown={toggleDrawer(side, false)}/>
+              
+              />
             </ListItem>
           </Link>
           

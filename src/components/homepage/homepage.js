@@ -1,5 +1,7 @@
 import React from 'react'
 import {Player} from 'video-react'
+import facebook from '../images/social/Facebook.svg'
+import insta from '../images/social/Instagram.svg'
 import poster from './poster.png'
 import glomarVideo from './glomarprobats.mp4'
 import {Link} from 'react-router-dom'
@@ -197,6 +199,12 @@ componentDidMount(){
                 {/* <ShopIcon className={styles.rightIcon} /> */}
           </Button>
 </Link>
+
+                    <div className="social-bar">
+                      <a href="https://www.instagram.com/Glomarprobats_official/" target="_blank" className="social" style={{backgroundImage: `url(${insta})`}}></a>
+                      <a href="https://www.facebook.com/glomarprobats/" target="_blank" className="social" style={{backgroundImage: `url(${facebook})`}}></a>
+
+                    </div>
                 
                 <div className="margin"></div>
                 <div className="margin"></div>
