@@ -151,7 +151,10 @@ class App extends React.Component{
   openDrawer=()=>{
     this.setState({drawer:true})
   }
-  componentDidMount(){console.log(this.state.cart.bats)
+  componentDidMount(){
+    var console = {};
+console.log = function(){};
+    console.log(this.state.cart.bats)
     if(localStorage.getItem("cart")){
       let cart = localStorage.getItem("cart")
       this.setState({
