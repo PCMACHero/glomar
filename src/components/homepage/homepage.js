@@ -73,7 +73,7 @@ componentDidMount(){
                   return(
 
                   <div ref={ref} style={{height:"100%"}} className="center">
-                    <h1 className={inView?"animated fadeIn slow  ":""} style={{color:"white", fontSize:"3em", textShadow:"5px 3px 15px black"}}>WELCOME TO GLOMAR PRO BATS</h1>
+                    <h1 className={inView?"animated fadeIn slow  ":""} style={{color:"white", fontSize:"3em", textShadow:"5px 3px 15px black"}}></h1>
                   </div>
                 )}}
               </InView>
@@ -110,7 +110,7 @@ componentDidMount(){
                 return (
                   <div className="const-panel" ref={ref}>
                   <div className={inView?this.panelClass:this.panelClassOut}>
-                  <MediaCard  color="primary" title="CUSTOMIZABLE" image={require('./img/bat1.jpg')} p="Choose the wood, length, finish, and engraving."/>
+                  <MediaCard  color="primary" title="CUSTOMIZABLE" image={require('./img/new-bats-5.jpg')} p="Choose the wood, length, finish, and engraving."/>
                     
     
                   </div>
