@@ -67,6 +67,7 @@ export default class Shop extends React.Component{
         itemClicked: "G243 Pro Model",
         
         selectedColor: "Select a Color",
+        selectedColorHandle: "(Default)",
         selectedSize:null,
         selectedWood:"Maple",
         engraving:"",
@@ -220,6 +221,12 @@ export default class Shop extends React.Component{
         })
     }
 
+    chooseHandleColor=(color)=>{
+        this.setState({
+            selectedColorHandle: color
+        })
+    }
+
     openItem=(item)=>{
         console.log("chose ",item)
         this.setState({
@@ -238,6 +245,7 @@ export default class Shop extends React.Component{
     resetShop=()=>{
         this.setState({
             selectedColor: "Select a Color",
+            selectedColorHandle: "(Default)",
             selectedSize:null,
             engraving:"",
             quantity:1,
@@ -376,7 +384,70 @@ export default class Shop extends React.Component{
                             ></div>
                             </Tooltip>
                 </div>
-                                <div className="color-name">{this.state.selectedColor}</div>
+                                <div className="color-name">Color: {this.state.selectedColor}</div>
+                        </div>
+
+                        <div className="color-bar-box">
+                            <div className="color-bar">
+                            <Tooltip title="Unfinished" placement="bottom">
+                                <div 
+                                onClick={()=>{this.chooseHandleColor("Unfinished")}} 
+                                className={this.state.selectedColor==="Unfinished"? "color-choice animated pulse unfinished":"color-choice unfinished"} 
+                                // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Unfinished"})} 
+                                
+                                // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                                ></div>
+                            </Tooltip>
+                            <Tooltip title="Black" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Black")}} className={this.state.selectedColorHandle==="Black"?" selected-color color-choice black animated pulse infinite":" color-choice black"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Black"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="Charcoal" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Charcoal")}} className={this.state.selectedColorHandle==="Charcoal"?" selected-color color-choice charcoal animated pulse infinite":" color-choice charcoal"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Charcoal"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="Red Mahogany" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Red Mahogany")}} className={this.state.selectedColorHandle==="Red Mahogany"?" selected-color color-choice mahogany animated pulse infinite":" color-choice mahogany"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Red Mahogany"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="Forest Green" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Forest Green")}} className={this.state.selectedColorHandle==="Forest Green"?" selected-color color-choice forest-green animated pulse infinite":" color-choice forest-green"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Forest Green"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="Navy Blue" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Navy Blue")}} className={this.state.selectedColorHandle==="Navy Blue"?" selected-color color-choice navy-blue animated pulse infinite":" color-choice navy-blue"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Navy Blue"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="Royal Blue" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Royal Blue")}} className={this.state.selectedColorHandle==="Royal Blue"?" selected-color color-choice royal-blue animated pulse infinite":" color-choice royal-blue"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"Royal Blue"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="White Stain" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("White Stain")}} className={this.state.selectedColorHandle==="White Stain"?" selected-color color-choice white-stain animated pulse infinite":" color-choice white-stain"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"White Stain"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                            <Tooltip title="Pink" placement="bottom">
+                            <div onClick={()=>{this.chooseHandleColor("Pink")}} className={this.state.selectedColorHandle==="Pink"?" selected-color color-choice pink animated pulse infinite":" color-choice pink"} 
+                            // onMouseEnter={isMobile ? () => (false) : this.setState({colorHover:"White Stain"})}  
+                            // onMouseLeave={isMobile ? ()=>(false):this.setState({colorHover:null})}
+                            ></div>
+                            </Tooltip>
+                </div>
+                                <div className="color-name">Handle Color: {this.state.selectedColorHandle}</div>
                         </div>
                         <div className="row wide">
                             <DropDown sizes={this.state.itemClicked==="G271 Pro YOUTH BAT"?"Youth":"Adult"} text={this.state.selectedSize? `${this.state.selectedSize}"`:"Size"} choose={this.chooseSize}/>
@@ -444,6 +515,7 @@ export default class Shop extends React.Component{
                                     this.props.updateCart(this.state.quantity, {
                                         model: this.state.itemClicked,
                                         color: this.state.selectedColor,
+                                        colorHandle: this.state.selectedColorHandle,
                                         size: this.state.selectedSize,
                                         wood: this.state.selectedWood,
                                         engraving: this.state.engraving,

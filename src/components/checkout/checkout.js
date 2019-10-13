@@ -70,8 +70,8 @@ export default class Checkout extends React.Component{
             console.log("this",element)
             orderItems.push(
                 {
-                    name: `${element.color},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
-                    description: `${element.color},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
+                    name: `${element.color}, handle: ${element.colorHandle},${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
+                    description: `${element.color}, handle: ${element.colorHandle}, ${element.wood}, ${element.size}", "${element.engraving?element.engraving:""}"`,
                     sku: element.model,
                     unit_amount: {
                         currency_code: "USD",
@@ -93,7 +93,7 @@ export default class Checkout extends React.Component{
                     {/* <div className={`checkout-item-color ${this.colorConvert[element.color]}`}></div> */}
                     <div className="checkout-item-img" style={{backgroundImage:element.img}}></div>
                 </div>
-            <div className="checkout-item-model">{(element.model).toUpperCase()} {(element.color).toUpperCase()}</div>   
+            <div className="checkout-item-model">{(element.model).toUpperCase()} {(element.color).toUpperCase()} {`${element.colorHandle=="(Default)"?"":`HANDLE: ${(element.colorHandle).toUpperCase()}`}`}</div>   
             <div className="checkout-item-size">{element.size}"</div> 
             <div className="checkout-item-quantity">Qty {element.quantity}</div> 
             <div className="qty-cont">
