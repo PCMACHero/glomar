@@ -57,7 +57,7 @@ function SwipeableTemporaryDrawer(props) {
               if (window.confirm('Are you sure you wish to remove this item?')){props.removeItem(index)}
 
               }}><RemoveIcon color="error"/></ListItemIcon>
-            <ListItemText primary={`${bat.model} - ${bat.wood} / ${bat.color} / ${bat.size}" (qty ${bat.quantity})`}  />
+            <ListItemText primary={`${bat.model} - ${bat.wood} / Color: ${bat.color} / Handle: ${bat.colorHandle}/ ${bat.size}" (qty ${bat.quantity})`}  />
           </ListItem>
         ))}
         <ListItem onClick={() => { if (window.confirm('Are you sure you wish to remove all items?')) props.emptyCart() } }
